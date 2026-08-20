@@ -1,0 +1,512 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.pagina {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 30px;
+  background: radial-gradient(circle at center, #102219 0%, #070b0d 55%, #020304 100%);
+  color: #e3ece7;
+}
+
+.grade-fundo {
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+  background-image:
+    linear-gradient(rgba(73, 245, 155, 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(73, 245, 155, 0.18) 1px, transparent 1px);
+  background-size: 48px 48px;
+  animation: mover-grade 14s linear infinite;
+}
+
+.scanlines {
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+  background: repeating-linear-gradient(0deg, transparent, transparent 3px, #000 4px);
+  pointer-events: none;
+}
+
+.codigo {
+  position: absolute;
+  color: rgba(73, 245, 155, 0.08);
+  font-family: 'Courier New', monospace;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.codigo-1 {
+  top: 12%;
+  left: -25%;
+  font-size: 30px;
+  animation: mover-direita 18s linear infinite;
+}
+
+.codigo-2 {
+  top: 36%;
+  right: -35%;
+  font-size: 22px;
+  animation: mover-esquerda 24s linear infinite;
+}
+
+.codigo-3 {
+  bottom: 25%;
+  left: -30%;
+  font-size: 18px;
+  animation: mover-direita 27s linear infinite;
+}
+
+.codigo-4 {
+  bottom: 10%;
+  right: -40%;
+  font-size: 16px;
+  animation: mover-esquerda 30s linear infinite;
+}
+
+.descriptografia {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 850px;
+  padding: 55px;
+  border: 1px solid rgba(73, 245, 155, 0.3);
+  background: rgba(7, 12, 14, 0.94);
+  box-shadow: 0 0 70px rgba(73, 245, 155, 0.06);
+}
+
+.alerta {
+  margin-bottom: 16px;
+  color: #49f59b;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: 4px;
+}
+
+.descriptografia h1 {
+  margin: 0;
+  font-size: clamp(34px, 6vw, 66px);
+  line-height: 1;
+  letter-spacing: -3px;
+}
+
+.descriptografia h1 span {
+  display: block;
+  color: #49f59b;
+}
+
+.chave-titulo {
+  margin: 40px 0 8px;
+  color: #56645d;
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+.chave {
+  padding: 14px 18px;
+  border: 1px solid #21332a;
+  background: #060a0c;
+  color: #49f59b;
+  font-family: 'Courier New', monospace;
+  font-size: clamp(20px, 4vw, 32px);
+  letter-spacing: 8px;
+  text-align: center;
+  box-shadow: inset 0 0 25px rgba(73, 245, 155, 0.04);
+}
+
+.terminal-log {
+  margin: 35px 0;
+  padding: 20px;
+  border-left: 2px solid #1f4833;
+  background: rgba(0, 0, 0, 0.18);
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+}
+
+.terminal-log p {
+  margin: 7px 0;
+  color: #68766f;
+}
+
+.terminal-log p:nth-child(1),
+.terminal-log p:nth-child(2) {
+  color: #49f59b;
+}
+
+.barra-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 9px;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+}
+
+.barra-info span {
+  color: #59675f;
+  letter-spacing: 2px;
+}
+
+.barra-info strong {
+  color: #49f59b;
+}
+
+.barra {
+  height: 8px;
+  overflow: hidden;
+  background: #142019;
+}
+
+.barra div {
+  height: 100%;
+  background: linear-gradient(90deg, #147548, #49f59b);
+  box-shadow: 0 0 18px rgba(73, 245, 155, 0.5);
+  transition: width 0.08s linear;
+}
+
+.status {
+  margin-top: 14px;
+  color: #65736b;
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.vitoria {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1050px;
+  padding: 45px 55px 25px;
+  border: 1px solid rgba(73, 245, 155, 0.35);
+  background: rgba(6, 11, 13, 0.96);
+  text-align: center;
+  box-shadow: 0 0 90px rgba(73, 245, 155, 0.09);
+  animation: revelar 0.8s ease-out;
+}
+
+.codigo-status {
+  margin: 0 0 12px;
+  color: #49f59b;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: 4px;
+}
+
+.titulo-vitoria {
+  position: relative;
+  margin: 0 0 38px;
+  color: #eaf2ee;
+  font-family: 'Courier New', monospace;
+  font-size: clamp(36px, 7vw, 76px);
+  letter-spacing: -4px;
+  animation: glitch-principal 3s infinite;
+}
+
+.vencedor-label {
+  margin-bottom: 8px;
+  color: #5f6d65;
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 4px;
+}
+
+.vencedor {
+  color: #49f59b;
+  font-size: clamp(48px, 9vw, 110px);
+  font-weight: 900;
+  letter-spacing: -5px;
+  text-transform: uppercase;
+  text-shadow: 0 0 20px rgba(73, 245, 155, 0.22);
+  animation: vencedor-entrada 1s ease-out;
+}
+
+.pontuacao {
+  margin: 15px auto 28px;
+  font-family: 'Courier New', monospace;
+}
+
+.pontuacao span {
+  display: block;
+  color: #536159;
+  font-size: 8px;
+  letter-spacing: 3px;
+}
+
+.pontuacao strong {
+  color: #ffffff;
+  font-size: 30px;
+}
+
+.pontuacao small {
+  margin-left: 5px;
+  color: #59665f;
+}
+
+.linha-sucesso {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0 30px;
+  color: #49f59b;
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+.linha-sucesso span {
+  flex: 1;
+  height: 1px;
+  background: rgba(73, 245, 155, 0.3);
+}
+
+.ranking-final {
+  max-width: 720px;
+  margin: auto;
+  border: 1px solid #18241e;
+  text-align: left;
+}
+
+.ranking-titulo {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid #17211c;
+  color: #526159;
+  font-family: 'Courier New', monospace;
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+
+.ranking-jogador {
+  min-height: 50px;
+  display: grid;
+  grid-template-columns: 50px 1fr auto;
+  align-items: center;
+  padding: 0 16px;
+  border-bottom: 1px solid #121b17;
+}
+
+.ranking-jogador:last-child {
+  border-bottom: 0;
+}
+
+.ranking-jogador.primeiro {
+  background: linear-gradient(90deg, rgba(73, 245, 155, 0.08), transparent);
+}
+
+.posicao {
+  color: #546159;
+  font-family: 'Courier New', monospace;
+}
+
+.primeiro .posicao,
+.primeiro .nome,
+.primeiro .pontos-ranking {
+  color: #49f59b;
+}
+
+.nome {
+  color: #cbd6d0;
+}
+
+.pontos-ranking {
+  color: #99a69f;
+  font-family: 'Courier New', monospace;
+}
+
+.acoes {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.acoes button {
+  min-width: 220px;
+  padding: 13px 18px;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.botao-novo {
+  border: 1px solid #49f59b;
+  background: #49f59b;
+  color: #041009;
+}
+
+.botao-inicio {
+  border: 1px solid #304039;
+  background: transparent;
+  color: #a2afa8;
+}
+
+.acoes button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.mensagem-acao {
+  color: #ff8b8b;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  padding-top: 13px;
+  border-top: 1px solid #15201a;
+  color: #3f4b45;
+  font-family: 'Courier New', monospace;
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+
+.glitch-fundo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(73, 245, 155, 0.018);
+  font-size: 130px;
+  font-weight: bold;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.piscar {
+  animation: piscar 0.7s infinite;
+}
+
+@keyframes piscar {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes revelar {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes vencedor-entrada {
+  from {
+    opacity: 0;
+    transform: scale(1.35);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes glitch-principal {
+  0%,
+  92%,
+  100% {
+    transform: translate(0);
+  }
+  93% {
+    transform: translate(-3px, 1px);
+  }
+  94% {
+    transform: translate(4px, -1px);
+  }
+  95% {
+    transform: translate(-2px, 2px);
+  }
+  96% {
+    transform: translate(0);
+  }
+}
+
+@keyframes mover-direita {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(160vw);
+  }
+}
+
+@keyframes mover-esquerda {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-160vw);
+  }
+}
+
+@keyframes mover-grade {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 48px 48px;
+  }
+}
+
+@media (max-width: 700px) {
+  .pagina {
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .descriptografia,
+  .vitoria {
+    margin-top: 10px;
+    padding: 35px 20px;
+  }
+
+  .chave {
+    letter-spacing: 4px;
+    font-size: 18px;
+  }
+
+  .vencedor {
+    font-size: 56px;
+    letter-spacing: -3px;
+  }
+
+  .titulo-vitoria {
+    font-size: 38px;
+    letter-spacing: -2px;
+  }
+
+  .acoes {
+    flex-direction: column;
+  }
+
+  .acoes button {
+    width: 100%;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 5px;
+  }
+}

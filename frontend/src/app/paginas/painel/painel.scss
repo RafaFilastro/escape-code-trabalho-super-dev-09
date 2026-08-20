@@ -1,0 +1,1836 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.painel {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 22px;
+  background: radial-gradient(circle at center, #101b17 0%, #060a0c 55%, #020304 100%);
+  color: #e5eee9;
+}
+
+.grade {
+  position: absolute;
+  inset: 0;
+  opacity: 0.09;
+  background-image:
+    linear-gradient(rgba(73, 245, 155, 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(73, 245, 155, 0.18) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.scanlines {
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, transparent, transparent 3px, #000 4px);
+}
+
+.stream {
+  position: absolute;
+  color: rgba(73, 245, 155, 0.06);
+  font:
+    18px 'Courier New',
+    monospace;
+  white-space: nowrap;
+}
+
+.stream-1 {
+  top: 12%;
+  left: -40%;
+  animation: direita 23s linear infinite;
+}
+
+.stream-2 {
+  top: 55%;
+  right: -45%;
+  animation: esquerda 27s linear infinite;
+}
+
+.stream-3 {
+  bottom: 8%;
+  left: -45%;
+  animation: direita 31s linear infinite;
+}
+
+.login-admin,
+.sem-partida,
+.console {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  margin: auto;
+  border: 1px solid rgba(73, 245, 155, 0.24);
+  background: rgba(6, 11, 13, 0.95);
+  box-shadow: 0 0 60px rgba(73, 245, 155, 0.05);
+}
+
+.login-admin {
+  max-width: 520px;
+  margin-top: 14vh;
+  padding: 40px;
+}
+
+.login-admin p,
+.sem-partida p {
+  color: #ff5b5b;
+  font:
+    9px 'Courier New',
+    monospace;
+  letter-spacing: 4px;
+}
+
+.login-admin h1,
+.sem-partida h1 {
+  margin: 8px 0 10px;
+  font-size: 38px;
+}
+
+.login-admin > span {
+  color: #67766e;
+}
+
+.login-admin form {
+  margin-top: 28px;
+  display: grid;
+  gap: 10px;
+}
+
+.login-admin input,
+.login-admin button,
+.sem-partida button,
+.faixa-controle button {
+  min-height: 48px;
+  border: 1px solid #2a3b33;
+  background: #080d0f;
+  color: #dbe5df;
+  padding: 0 14px;
+  font:
+    700 11px 'Courier New',
+    monospace;
+}
+
+.login-admin button,
+.sem-partida button,
+.faixa-controle button {
+  border-color: #49f59b;
+  background: #49f59b;
+  color: #041009;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.sem-partida {
+  max-width: 760px;
+  margin-top: 16vh;
+  padding: 65px;
+  text-align: center;
+}
+
+.sem-partida button {
+  margin-top: 20px;
+  padding: 0 22px;
+}
+
+.console {
+  max-width: 1500px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 80px;
+  padding: 16px 24px;
+  border-bottom: 1px solid #16231d;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.marca div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.marca strong {
+  color: #49f59b;
+  font:
+    700 14px 'Courier New',
+    monospace;
+  letter-spacing: 3px;
+}
+
+.marca small,
+.cronometro-geral span {
+  color: #5e6d65;
+  font:
+    8px 'Courier New',
+    monospace;
+  letter-spacing: 2px;
+}
+
+.online {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #49f59b;
+  box-shadow: 0 0 15px #49f59b;
+  animation: pulso 1.2s infinite;
+}
+
+.cronometro-geral {
+  text-align: right;
+}
+
+.cronometro-geral span {
+  display: block;
+}
+
+.cronometro-geral strong {
+  font:
+    700 30px 'Courier New',
+    monospace;
+}
+
+.faixa-controle {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr auto;
+  gap: 18px;
+  align-items: center;
+  margin: 18px 24px 0;
+  padding: 14px 16px;
+  border: 1px solid #1c2a23;
+  background: rgba(7, 13, 15, 0.85);
+}
+
+.faixa-controle > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.faixa-controle span,
+.protocolo span {
+  color: #5b6961;
+  font:
+    8px 'Courier New',
+    monospace;
+  letter-spacing: 2px;
+}
+
+.faixa-controle strong {
+  font:
+    700 13px 'Courier New',
+    monospace;
+}
+
+.faixa-controle strong.ativo {
+  color: #49f59b;
+}
+
+.faixa-controle button {
+  padding: 0 20px;
+}
+
+.mensagem {
+  color: #ff6969;
+  font:
+    10px 'Courier New',
+    monospace;
+}
+
+.faixa {
+  margin: 10px 24px 0;
+  padding: 10px;
+  border-left: 2px solid #ff5656;
+  background: rgba(255, 0, 0, 0.04);
+}
+
+.protocolo {
+  display: grid;
+  grid-template-columns: 1fr 180px 180px;
+  align-items: end;
+  gap: 20px;
+  padding: 26px 24px 18px;
+}
+
+.protocolo h1 {
+  margin: 7px 0 0;
+  font-size: 36px;
+}
+
+.rodada,
+.tempo-rodada {
+  text-align: right;
+}
+
+.rodada strong,
+.tempo-rodada strong {
+  display: block;
+  color: #49f59b;
+  font:
+    700 36px 'Courier New',
+    monospace;
+}
+
+.rodada small,
+.tempo-rodada small {
+  color: #5d6b63;
+  font-size: 11px;
+}
+
+.tempo-rodada.critico strong {
+  color: #ff5151;
+  animation: alerta 0.4s infinite alternate;
+}
+
+.chave {
+  margin: 0 24px 20px;
+  padding: 20px;
+  border: 1px solid #18251e;
+  background: rgba(7, 13, 15, 0.8);
+}
+
+.titulo,
+.titulo-bloco {
+  display: flex;
+  justify-content: space-between;
+  font:
+    9px 'Courier New',
+    monospace;
+  letter-spacing: 2px;
+}
+
+.titulo span {
+  color: #617068;
+}
+
+.titulo strong {
+  color: #49f59b;
+}
+
+.barra {
+  height: 6px;
+  margin-top: 10px;
+  overflow: hidden;
+  background: #142019;
+}
+
+.barra div {
+  height: 100%;
+  background: #49f59b;
+  transition: width 0.4s ease;
+}
+
+.fragmentos {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.fragmentos div {
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #24332b;
+  color: #45534b;
+  font:
+    700 18px 'Courier New',
+    monospace;
+}
+
+.fragmentos div.aberto {
+  color: #49f59b;
+  border-color: rgba(73, 245, 155, 0.5);
+}
+
+.grade-conteudo {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 18px;
+  padding: 0 24px 24px;
+}
+
+.codinomes-conectados,
+.status-rodada {
+  border: 1px solid #18251e;
+  background: rgba(7, 13, 15, 0.8);
+}
+
+.titulo-bloco {
+  padding: 13px 15px;
+  border-bottom: 1px solid #17221d;
+}
+
+.titulo-bloco span {
+  color: #49f59b;
+}
+
+.titulo-bloco small {
+  color: #506057;
+}
+
+.lista-codinomios {
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.linha-codinome {
+  display: grid;
+  grid-template-columns: 42px 1fr 90px auto;
+  align-items: center;
+  min-height: 58px;
+  gap: 10px;
+  padding: 0 14px;
+  border-bottom: 1px solid #131d18;
+}
+
+.remover {
+  padding: 7px 9px;
+  border: 1px solid rgba(255, 80, 80, 0.35);
+  background: rgba(255, 0, 0, 0.04);
+  color: #ff6969;
+  font:
+    8px 'Courier New',
+    monospace;
+  cursor: pointer;
+}
+
+.status-rodada {
+  text-align: center;
+}
+
+.contador {
+  margin-top: 36px;
+  font-family: 'Courier New', monospace;
+}
+
+.contador strong {
+  font-size: 58px;
+}
+
+.contador span {
+  color: #59675f;
+  font-size: 22px;
+}
+
+.status-rodada > p {
+  color: #5c6a62;
+  font:
+    8px 'Courier New',
+    monospace;
+  letter-spacing: 2px;
+}
+
+.rodada-barra {
+  margin: 22px 25px 10px;
+}
+
+.porcentagem {
+  color: #49f59b;
+  font:
+    700 14px 'Courier New',
+    monospace;
+}
+
+.telemetria {
+  display: grid;
+  gap: 8px;
+  margin: 30px 25px;
+  padding-top: 18px;
+  border-top: 1px solid #18231e;
+  color: #4e5e55;
+  font:
+    8px 'Courier New',
+    monospace;
+  text-align: left;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 18px;
+  border-top: 1px solid #152019;
+  color: #405047;
+  font:
+    8px 'Courier New',
+    monospace;
+}
+
+.tempo-critico .console {
+  border-color: rgba(255, 50, 50, 0.65);
+  animation: painelCritico 0.55s infinite alternate;
+}
+
+.tempo-critico .cronometro-geral strong {
+  color: #ff4f4f;
+}
+
+@keyframes painelCritico {
+  from {
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.05);
+  }
+
+  to {
+    box-shadow: 0 0 95px rgba(255, 0, 0, 0.22);
+  }
+}
+
+@keyframes pulso {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes alerta {
+  to {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes direita {
+  to {
+    transform: translateX(180vw);
+  }
+}
+
+@keyframes esquerda {
+  to {
+    transform: translateX(-180vw);
+  }
+}
+
+@media (max-width: 900px) {
+  .painel {
+    padding: 8px;
+  }
+
+  .faixa-controle,
+  .protocolo,
+  .grade-conteudo {
+    grid-template-columns: 1fr;
+  }
+
+  .rodada,
+  .tempo-rodada {
+    text-align: left;
+  }
+
+  .fragmentos {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* =========================================================
+   ESCAPE CODE V5
+   PAREDE DE TELEMETRIA DO PAINEL
+   ========================================================= */
+
+.atmosfera-hacker {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  font-family: 'Courier New', monospace;
+}
+
+.atmosfera-hacker::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 11% 34%, rgba(73, 245, 155, 0.065), transparent 18%),
+    radial-gradient(circle at 88% 21%, rgba(73, 245, 155, 0.05), transparent 22%),
+    radial-gradient(circle at 72% 82%, rgba(73, 245, 155, 0.04), transparent 20%);
+  animation: respiracaoDigital 5s ease-in-out infinite alternate;
+}
+
+.hack-linha {
+  position: absolute;
+  display: block;
+  width: max-content;
+  white-space: nowrap;
+  color: rgba(73, 245, 155, 0.24);
+  text-shadow:
+    0 0 8px rgba(73, 245, 155, 0.22),
+    0 0 20px rgba(73, 245, 155, 0.05);
+  letter-spacing: 1.8px;
+}
+
+.hl-01 {
+  top: 3%;
+  left: -72vw;
+  font-size: 9px;
+  opacity: 0.68;
+  animation: varreduraDireita 20s linear infinite;
+  animation-delay: -3s;
+}
+
+.hl-02 {
+  top: 7%;
+  right: -72vw;
+  font-size: 10px;
+  opacity: 0.48;
+  animation: varreduraEsquerda 27s linear infinite;
+  animation-delay: -11s;
+}
+
+.hl-03 {
+  top: 11%;
+  left: -72vw;
+  font-size: 11px;
+  opacity: 0.73;
+  animation: varreduraDireita 32s linear infinite;
+  animation-delay: -17s;
+}
+
+.hl-04 {
+  top: 15%;
+  right: -72vw;
+  font-size: 8px;
+  opacity: 0.41;
+  animation: varreduraEsquerda 24s linear infinite;
+  animation-delay: -6s;
+}
+
+.hl-05 {
+  top: 20%;
+  left: -72vw;
+  font-size: 12px;
+  opacity: 0.61;
+  animation: varreduraDireita 36s linear infinite;
+  animation-delay: -23s;
+}
+
+.hl-06 {
+  top: 25%;
+  right: -72vw;
+  font-size: 9px;
+  opacity: 0.53;
+  animation: varreduraEsquerda 29s linear infinite;
+  animation-delay: -14s;
+}
+
+.hl-07 {
+  top: 30%;
+  left: -72vw;
+  font-size: 10px;
+  opacity: 0.68;
+  animation: varreduraDireita 22s linear infinite;
+  animation-delay: -8s;
+}
+
+.hl-08 {
+  top: 35%;
+  right: -72vw;
+  font-size: 11px;
+  opacity: 0.48;
+  animation: varreduraEsquerda 31s linear infinite;
+  animation-delay: -27s;
+}
+
+.hl-09 {
+  top: 40%;
+  left: -72vw;
+  font-size: 8px;
+  opacity: 0.73;
+  animation: varreduraDireita 20s linear infinite;
+  animation-delay: -3s;
+}
+
+.hl-10 {
+  top: 45%;
+  right: -72vw;
+  font-size: 12px;
+  opacity: 0.41;
+  animation: varreduraEsquerda 27s linear infinite;
+  animation-delay: -11s;
+}
+
+.hl-11 {
+  top: 50%;
+  left: -72vw;
+  font-size: 9px;
+  opacity: 0.61;
+  animation: varreduraDireita 32s linear infinite;
+  animation-delay: -17s;
+}
+
+.hl-12 {
+  top: 55%;
+  right: -72vw;
+  font-size: 10px;
+  opacity: 0.53;
+  animation: varreduraEsquerda 24s linear infinite;
+  animation-delay: -6s;
+}
+
+.hl-13 {
+  top: 60%;
+  left: -72vw;
+  font-size: 11px;
+  opacity: 0.68;
+  animation: varreduraDireita 36s linear infinite;
+  animation-delay: -23s;
+}
+
+.hl-14 {
+  top: 65%;
+  right: -72vw;
+  font-size: 8px;
+  opacity: 0.48;
+  animation: varreduraEsquerda 29s linear infinite;
+  animation-delay: -14s;
+}
+
+.hl-15 {
+  top: 70%;
+  left: -72vw;
+  font-size: 12px;
+  opacity: 0.73;
+  animation: varreduraDireita 22s linear infinite;
+  animation-delay: -8s;
+}
+
+.hl-16 {
+  top: 75%;
+  right: -72vw;
+  font-size: 9px;
+  opacity: 0.41;
+  animation: varreduraEsquerda 31s linear infinite;
+  animation-delay: -27s;
+}
+
+.hl-17 {
+  top: 80%;
+  left: -72vw;
+  font-size: 10px;
+  opacity: 0.61;
+  animation: varreduraDireita 20s linear infinite;
+  animation-delay: -3s;
+}
+
+.hl-18 {
+  top: 85%;
+  right: -72vw;
+  font-size: 11px;
+  opacity: 0.53;
+  animation: varreduraEsquerda 27s linear infinite;
+  animation-delay: -11s;
+}
+
+.hl-19 {
+  top: 90%;
+  left: -72vw;
+  font-size: 8px;
+  opacity: 0.68;
+  animation: varreduraDireita 32s linear infinite;
+  animation-delay: -17s;
+}
+
+.hl-20 {
+  top: 94%;
+  right: -72vw;
+  font-size: 12px;
+  opacity: 0.48;
+  animation: varreduraEsquerda 24s linear infinite;
+  animation-delay: -6s;
+}
+
+.hl-21 {
+  top: 3%;
+  left: -72vw;
+  font-size: 9px;
+  opacity: 0.73;
+  animation: varreduraDireita 36s linear infinite;
+  animation-delay: -23s;
+}
+
+.hl-22 {
+  top: 7%;
+  right: -72vw;
+  font-size: 10px;
+  opacity: 0.41;
+  animation: varreduraEsquerda 29s linear infinite;
+  animation-delay: -14s;
+}
+
+.hl-23 {
+  top: 11%;
+  left: -72vw;
+  font-size: 11px;
+  opacity: 0.61;
+  animation: varreduraDireita 22s linear infinite;
+  animation-delay: -8s;
+}
+
+.hl-24 {
+  top: 15%;
+  right: -72vw;
+  font-size: 8px;
+  opacity: 0.53;
+  animation: varreduraEsquerda 31s linear infinite;
+  animation-delay: -27s;
+}
+
+.hl-25 {
+  top: 20%;
+  left: -72vw;
+  font-size: 12px;
+  opacity: 0.68;
+  animation: varreduraDireita 20s linear infinite;
+  animation-delay: -3s;
+}
+
+.hl-26 {
+  top: 25%;
+  right: -72vw;
+  font-size: 9px;
+  opacity: 0.48;
+  animation: varreduraEsquerda 27s linear infinite;
+  animation-delay: -11s;
+}
+
+.hack-coluna {
+  position: absolute;
+  color: rgba(73, 245, 155, 0.15);
+  font:
+    8px/1.8 'Courier New',
+    monospace;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.hc-01 {
+  left: 1.5%;
+  top: -42%;
+  animation: colunaDescer 15s linear infinite -9s;
+}
+
+.hc-02 {
+  right: 2%;
+  top: -36%;
+  animation: colunaDescer 19s linear infinite -5s;
+}
+
+.hc-03 {
+  left: 8.5%;
+  top: -44%;
+  opacity: 0.58;
+  animation: colunaDescer 24s linear infinite -16s;
+}
+
+.hc-04 {
+  right: 9%;
+  top: -40%;
+  opacity: 0.52;
+  animation: colunaDescer 21s linear infinite -11s;
+}
+
+.hack-card {
+  position: absolute;
+  min-width: 132px;
+  padding: 8px 11px;
+  border-left: 1px solid rgba(73, 245, 155, 0.34);
+  border-top: 1px solid rgba(73, 245, 155, 0.1);
+  background: linear-gradient(90deg, rgba(73, 245, 155, 0.045), transparent);
+  color: rgba(220, 255, 235, 0.42);
+  animation: flutuarHud 5s ease-in-out infinite alternate;
+}
+
+.hack-card small {
+  display: block;
+  color: rgba(73, 245, 155, 0.34);
+  font:
+    6px 'Courier New',
+    monospace;
+  letter-spacing: 2px;
+}
+
+.hack-card strong {
+  display: block;
+  margin: 3px 0;
+  color: rgba(92, 255, 173, 0.56);
+  font:
+    700 13px 'Courier New',
+    monospace;
+}
+
+.hack-card span {
+  color: rgba(138, 168, 151, 0.38);
+  font:
+    6px 'Courier New',
+    monospace;
+  letter-spacing: 1px;
+}
+
+.card-01 {
+  left: 2.5%;
+  top: 18%;
+  animation-delay: -3s;
+}
+
+.card-02 {
+  right: 2.5%;
+  top: 28%;
+  animation-delay: -1s;
+}
+
+.card-03 {
+  left: 3%;
+  bottom: 18%;
+  animation-delay: -4s;
+}
+
+.card-04 {
+  right: 3%;
+  bottom: 12%;
+  animation-delay: -2s;
+}
+
+.reticulo {
+  position: absolute;
+  width: 76px;
+  height: 76px;
+  border: 1px solid rgba(73, 245, 155, 0.14);
+  border-radius: 50%;
+  animation: rastrear 9s ease-in-out infinite alternate;
+}
+
+.reticulo::before,
+.reticulo::after {
+  content: '';
+  position: absolute;
+  background: rgba(73, 245, 155, 0.22);
+}
+
+.reticulo::before {
+  left: 50%;
+  top: -18px;
+  width: 1px;
+  height: 112px;
+}
+
+.reticulo::after {
+  top: 50%;
+  left: -18px;
+  width: 112px;
+  height: 1px;
+}
+
+.reticulo i {
+  position: absolute;
+  inset: 29px;
+  border-radius: 50%;
+  background: rgba(73, 245, 155, 0.4);
+  box-shadow: 0 0 18px rgba(73, 245, 155, 0.3);
+}
+
+.reticulo span {
+  position: absolute;
+  left: 84px;
+  top: 31px;
+  width: max-content;
+  color: rgba(73, 245, 155, 0.3);
+  font:
+    6px 'Courier New',
+    monospace;
+  letter-spacing: 2px;
+}
+
+.reticulo-a {
+  left: 11%;
+  top: 56%;
+  animation-delay: -4s;
+}
+
+.reticulo-b {
+  right: 11%;
+  top: 12%;
+  animation-delay: -7s;
+}
+
+.reticulo-c {
+  right: 22%;
+  bottom: 5%;
+  transform: scale(0.72);
+  animation-delay: -2s;
+}
+
+/* Telemetria dentro do console principal.
+   Assim o painel não fica "limpo demais" no projetor. */
+.console {
+  overflow: hidden;
+  background: rgba(6, 11, 13, 0.9);
+}
+
+.console > :not(.codigo-console) {
+  position: relative;
+  z-index: 3;
+}
+
+.codigo-console {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  font-family: 'Courier New', monospace;
+}
+
+.codigo-console::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(73, 245, 155, 0.018) 49%,
+    rgba(73, 245, 155, 0.05) 50%,
+    rgba(73, 245, 155, 0.018) 51%,
+    transparent 100%
+  );
+  transform: translateX(-120%);
+  animation: scannerHorizontal 6s linear infinite;
+}
+
+.cc {
+  position: absolute;
+  display: block;
+  width: max-content;
+  color: rgba(73, 245, 155, 0.085);
+  font:
+    8px 'Courier New',
+    monospace;
+  letter-spacing: 1.7px;
+  text-shadow: 0 0 7px rgba(73, 245, 155, 0.08);
+}
+
+.cc-01 {
+  top: 8%;
+  left: -55%;
+  animation: consoleDireita 21s linear infinite -11s;
+}
+.cc-02 {
+  top: 14%;
+  right: -55%;
+  animation: consoleEsquerda 27s linear infinite -17s;
+}
+.cc-03 {
+  top: 22%;
+  left: -58%;
+  animation: consoleDireita 32s linear infinite -4s;
+}
+.cc-04 {
+  top: 30%;
+  right: -56%;
+  animation: consoleEsquerda 23s linear infinite -13s;
+}
+.cc-05 {
+  top: 38%;
+  left: -57%;
+  animation: consoleDireita 28s linear infinite -19s;
+}
+.cc-06 {
+  top: 46%;
+  right: -60%;
+  animation: consoleEsquerda 34s linear infinite -8s;
+}
+.cc-07 {
+  top: 54%;
+  left: -58%;
+  animation: consoleDireita 25s linear infinite -15s;
+}
+.cc-08 {
+  top: 62%;
+  right: -59%;
+  animation: consoleEsquerda 29s linear infinite -21s;
+}
+.cc-09 {
+  top: 70%;
+  left: -54%;
+  animation: consoleDireita 31s linear infinite -6s;
+}
+.cc-10 {
+  top: 78%;
+  right: -58%;
+  animation: consoleEsquerda 24s linear infinite -12s;
+}
+.cc-11 {
+  top: 86%;
+  left: -57%;
+  animation: consoleDireita 36s linear infinite -25s;
+}
+.cc-12 {
+  top: 27%;
+  left: 12%;
+  opacity: 0.62;
+  animation: pulsoFantasma 4.8s ease-in-out infinite;
+}
+.cc-13 {
+  top: 67%;
+  right: 13%;
+  opacity: 0.58;
+  animation: pulsoFantasma 5.6s ease-in-out infinite -2s;
+}
+.cc-14 {
+  top: 48%;
+  left: 43%;
+  opacity: 0.4;
+  animation: pulsoFantasma 6.5s ease-in-out infinite -4s;
+}
+
+.anel-scan {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border: 1px solid rgba(73, 245, 155, 0.07);
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 40px rgba(73, 245, 155, 0.022),
+    0 0 50px rgba(73, 245, 155, 0.022);
+}
+
+.anel-scan::before,
+.anel-scan::after {
+  content: '';
+  position: absolute;
+  border-radius: inherit;
+}
+
+.anel-scan::before {
+  inset: 22px;
+  border: 1px dashed rgba(73, 245, 155, 0.09);
+  animation: girarScan 16s linear infinite;
+}
+
+.anel-scan::after {
+  inset: 52px;
+  border: 1px solid rgba(73, 245, 155, 0.045);
+}
+
+.anel-scan-a {
+  left: -110px;
+  top: 8%;
+}
+
+.anel-scan-b {
+  right: -120px;
+  top: 38%;
+  transform: scale(0.85);
+}
+
+.anel-scan-c {
+  left: 38%;
+  bottom: -165px;
+  transform: scale(1.1);
+}
+
+.rodada-critica .hack-linha,
+.rodada-critica .hack-coluna,
+.rodada-critica .cc {
+  color: rgba(255, 65, 65, 0.2);
+  text-shadow: 0 0 10px rgba(255, 25, 25, 0.14);
+}
+
+.rodada-critica .hack-card {
+  border-color: rgba(255, 68, 68, 0.25);
+}
+
+.rodada-critica .reticulo {
+  border-color: rgba(255, 70, 70, 0.27);
+}
+
+.rodada-critica .reticulo i {
+  background: rgba(255, 70, 70, 0.55);
+  box-shadow: 0 0 22px rgba(255, 30, 30, 0.35);
+}
+
+@keyframes varreduraDireita {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(195vw);
+  }
+}
+
+@keyframes varreduraEsquerda {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-195vw);
+  }
+}
+
+@keyframes colunaDescer {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(180vh);
+  }
+}
+
+@keyframes consoleDireita {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(2200px);
+  }
+}
+
+@keyframes consoleEsquerda {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-2200px);
+  }
+}
+
+@keyframes flutuarHud {
+  from {
+    transform: translateY(-5px);
+    opacity: 0.42;
+  }
+
+  to {
+    transform: translateY(8px);
+    opacity: 0.85;
+  }
+}
+
+@keyframes rastrear {
+  0% {
+    transform: translate(0, 0) scale(0.82);
+    opacity: 0.25;
+  }
+
+  50% {
+    transform: translate(48px, -18px) scale(1);
+    opacity: 0.65;
+  }
+
+  100% {
+    transform: translate(-17px, 28px) scale(0.9);
+    opacity: 0.32;
+  }
+}
+
+@keyframes scannerHorizontal {
+  to {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes girarScan {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes respiracaoDigital {
+  from {
+    opacity: 0.42;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulsoFantasma {
+  0%,
+  100% {
+    opacity: 0.14;
+  }
+
+  50% {
+    opacity: 0.65;
+  }
+}
+
+@media (max-width: 900px) {
+  .hack-linha {
+    font-size: 7px !important;
+  }
+
+  .hack-card {
+    transform: scale(0.8);
+  }
+
+  .codigo-console .cc {
+    font-size: 6px;
+  }
+}
+
+/* Quando QUALQUER jogador erra, o painel recebe
+   um impacto visual curto. */
+.erro-remoto .console {
+  animation: impactoErroPainel 0.075s linear 8;
+}
+
+.erro-remoto::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.1) 0,
+    rgba(255, 0, 0, 0.1) 2px,
+    transparent 3px,
+    transparent 11px
+  );
+  animation: falhaSinalPainel 0.09s steps(2) infinite;
+}
+
+.alerta-erro-remoto {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: grid;
+  place-content: center;
+  overflow: hidden;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(50, 0, 0, 0.24),
+    rgba(0, 0, 0, 0.05) 55%,
+    transparent 75%
+  );
+  color: #ff5656;
+  text-align: center;
+}
+
+.alerta-erro-remoto .chuva-erro {
+  position: absolute;
+  inset: -45%;
+  color: rgba(255, 70, 70, 0.11);
+  font:
+    18px/2.1 'Courier New',
+    monospace;
+  transform: rotate(-7deg);
+  animation: chuvaErroPainel 0.35s linear infinite;
+}
+
+.alerta-erro-remoto strong {
+  position: relative;
+  z-index: 2;
+  font:
+    900 clamp(34px, 6vw, 72px) 'Courier New',
+    monospace;
+  letter-spacing: 3px;
+  text-shadow: 0 0 24px rgba(255, 25, 25, 0.32);
+}
+
+.alerta-erro-remoto span {
+  position: relative;
+  z-index: 2;
+  margin-top: 8px;
+  color: #ff9696;
+  font:
+    8px 'Courier New',
+    monospace;
+  letter-spacing: 3px;
+}
+
+@keyframes impactoErroPainel {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  20% {
+    transform: translate(-8px, 3px);
+  }
+
+  40% {
+    transform: translate(7px, -4px);
+  }
+
+  60% {
+    transform: translate(-5px, -2px);
+  }
+
+  80% {
+    transform: translate(6px, 4px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes falhaSinalPainel {
+  from {
+    opacity: 0.2;
+    transform: translateX(-3px);
+  }
+
+  to {
+    opacity: 0.7;
+    transform: translateX(3px);
+  }
+}
+
+@keyframes chuvaErroPainel {
+  from {
+    transform: translateY(-5%) rotate(-7deg);
+  }
+
+  to {
+    transform: translateY(8%) rotate(-7deg);
+  }
+}
+
+/* =========================================================
+   ESCAPE CODE V7
+   CODINOMES CONECTADOS
+   ========================================================= */
+
+.lista-codinomios {
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.linha-codinome {
+  display: grid;
+  grid-template-columns: 24px 1fr auto auto;
+  align-items: center;
+  min-height: 54px;
+  gap: 12px;
+  padding: 0 14px;
+  border-bottom: 1px solid #131d18;
+}
+
+.linha-codinome strong {
+  overflow: hidden;
+  color: #dce7e1;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.linha-codinome small {
+  color: #617068;
+  font:
+    7px 'Courier New',
+    monospace;
+  letter-spacing: 1px;
+}
+
+.indicador-codinome {
+  width: 8px;
+  height: 8px;
+  border: 1px solid #41534a;
+  border-radius: 50%;
+  background: #111a16;
+}
+
+.indicador-codinome.pronto {
+  border-color: #49f59b;
+  background: #49f59b;
+  box-shadow: 0 0 12px rgba(73, 245, 155, 0.45);
+}
+
+.lista-vazia {
+  min-height: 120px;
+  display: grid;
+  place-items: center;
+  color: #4f5e56;
+  font:
+    8px 'Courier New',
+    monospace;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 900px) {
+  .linha-codinome {
+    grid-template-columns: 20px 1fr auto;
+  }
+
+  .linha-codinome small {
+    display: none;
+  }
+}
+
+/* =========================================================
+   ESCAPE CODE V9
+   TV 55" + TOP 5 + TIPOGRAFIA MAIS LEGÍVEL
+   ========================================================= */
+
+.painel {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: clamp(14px, 2.2vh, 28px) clamp(16px, 2.4vw, 34px);
+}
+
+.console {
+  width: min(1580px, calc(100vw - 68px));
+  max-width: 1580px;
+  margin: 0 auto;
+}
+
+.login-admin,
+.sem-partida {
+  margin: 0 auto;
+}
+
+header {
+  min-height: 86px;
+  padding: 18px 26px;
+}
+
+.marca strong {
+  font-size: 15px;
+}
+
+.marca small,
+.cronometro-geral span {
+  font-size: 9px;
+}
+
+.cronometro-geral strong {
+  font-size: 36px;
+}
+
+.faixa-controle {
+  margin: 20px 26px 0;
+  padding: 16px 18px;
+}
+
+.faixa-controle span,
+.protocolo span {
+  font-size: 9px;
+}
+
+.faixa-controle strong {
+  font-size: 15px;
+}
+
+.protocolo {
+  grid-template-columns:
+    minmax(0, 1fr)
+    190px
+    190px;
+  padding: 28px 26px 20px;
+}
+
+.protocolo h1 {
+  font-size: 40px;
+}
+
+.rodada strong,
+.tempo-rodada strong {
+  font-size: 42px;
+}
+
+.rodada small,
+.tempo-rodada small {
+  font-size: 12px;
+}
+
+.chave {
+  margin: 0 26px 22px;
+  padding: 22px;
+}
+
+.titulo,
+.titulo-bloco {
+  font-size: 10px;
+}
+
+.fragmentos div {
+  height: 48px;
+  font-size: 20px;
+}
+
+.grade-conteudo {
+  grid-template-columns:
+    1.35fr
+    1fr;
+  gap: 20px;
+  padding: 0 26px 26px;
+}
+
+.lista-codinomios {
+  max-height: none;
+  overflow: hidden;
+}
+
+.linha-codinome {
+  grid-template-columns:
+    34px
+    14px
+    minmax(0, 1fr)
+    98px
+    135px;
+  min-height: 62px;
+  gap: 12px;
+  padding: 0 16px;
+}
+
+.posicao-top {
+  color: #586960;
+  font:
+    700 11px 'Courier New',
+    monospace;
+}
+
+.indicador-codinome {
+  width: 9px;
+  height: 9px;
+}
+
+.nome-codinome {
+  min-width: 0;
+  overflow: hidden;
+  color: #e4eee9;
+  font-size: 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pontuacao-codinome {
+  color: #49f59b;
+  font:
+    700 15px 'Courier New',
+    monospace;
+  text-align: right;
+}
+
+.pontuacao-codinome small {
+  margin-left: 3px;
+  color: #5e6d65;
+  font-size: 7px;
+}
+
+.estado-codinome {
+  color: #73827a;
+  font:
+    700 8px 'Courier New',
+    monospace;
+  letter-spacing: 1px;
+  text-align: right;
+}
+
+.remover {
+  justify-self: end;
+  min-width: 82px;
+  padding: 8px 10px;
+  font-size: 9px;
+}
+
+.contador {
+  margin-top: 42px;
+}
+
+.contador strong {
+  font-size: 64px;
+}
+
+.contador span {
+  font-size: 24px;
+}
+
+.status-rodada > p {
+  font-size: 9px;
+}
+
+.porcentagem {
+  font-size: 16px;
+}
+
+.telemetria {
+  font-size: 9px;
+}
+
+footer {
+  font-size: 9px;
+}
+
+/* TV / desktop Full HD:
+   mantém o console centralizado e com folga visual. */
+@media (min-width: 1200px) and (min-height: 760px) {
+  .console {
+    transform: translateY(-2px);
+  }
+}
+
+/* Tablet e notebook menores. */
+@media (max-width: 1100px) {
+  .painel {
+    align-items: flex-start;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 10px;
+  }
+
+  .console {
+    width: 100%;
+    margin: 0;
+  }
+
+  .faixa-controle,
+  .protocolo,
+  .grade-conteudo {
+    grid-template-columns: 1fr;
+  }
+
+  .rodada,
+  .tempo-rodada {
+    text-align: left;
+  }
+
+  .linha-codinome {
+    grid-template-columns:
+      30px
+      12px
+      minmax(0, 1fr)
+      88px
+      120px;
+  }
+}
+
+/* Celular:
+   evita qualquer estouro horizontal caso o painel
+   seja aberto pelo telefone durante testes. */
+@media (max-width: 650px) {
+  .painel {
+    width: 100%;
+    min-width: 0;
+    padding: 6px;
+  }
+
+  .console,
+  .login-admin,
+  .sem-partida {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  header {
+    min-height: auto;
+    gap: 14px;
+    padding: 13px 12px;
+  }
+
+  .marca strong {
+    font-size: 12px;
+  }
+
+  .marca small,
+  .cronometro-geral span {
+    font-size: 7px;
+  }
+
+  .cronometro-geral strong {
+    font-size: 24px;
+  }
+
+  .faixa-controle {
+    margin: 10px 10px 0;
+    padding: 12px;
+  }
+
+  .protocolo {
+    padding: 18px 10px 14px;
+  }
+
+  .protocolo h1 {
+    overflow-wrap: anywhere;
+    font-size: 27px;
+  }
+
+  .rodada strong,
+  .tempo-rodada strong {
+    font-size: 32px;
+  }
+
+  .chave {
+    margin: 0 10px 14px;
+    padding: 14px 10px;
+  }
+
+  .fragmentos {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+  }
+
+  .fragmentos div {
+    min-width: 0;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .grade-conteudo {
+    gap: 12px;
+    padding: 0 10px 12px;
+  }
+
+  .linha-codinome {
+    grid-template-columns:
+      27px
+      10px
+      minmax(0, 1fr)
+      auto;
+    min-height: 54px;
+    gap: 8px;
+    padding: 0 10px;
+  }
+
+  .nome-codinome {
+    font-size: 12px;
+  }
+
+  .pontuacao-codinome {
+    font-size: 12px;
+  }
+
+  .estado-codinome {
+    display: none;
+  }
+
+  .remover {
+    min-width: 68px;
+    padding: 7px 8px;
+    font-size: 7px;
+  }
+
+  .contador strong {
+    font-size: 50px;
+  }
+
+  footer {
+    gap: 8px;
+    padding: 10px;
+    font-size: 6px;
+  }
+}

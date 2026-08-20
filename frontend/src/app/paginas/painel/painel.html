@@ -1,0 +1,455 @@
+<main
+  class="painel"
+  [class.tempo-critico]="statusPartida === 'EM_ANDAMENTO' && segundosRestantes <= 10"
+  [class.rodada-critica]="statusPartida === 'EM_ANDAMENTO' && segundosRodada <= 5"
+  [class.erro-remoto]="painelTremendo"
+>
+  <div class="grade"></div>
+  <div class="scanlines"></div>
+
+  <div class="stream stream-1">0x91AE 77FF AES256 RANSOM_NOTE PAYLOAD_ACTIVE ROOT_DENIED</div>
+
+  <div class="stream stream-2">01101100 11010010 00111001 CRYPTO_LOCK MEMORY_DUMP</div>
+
+  <div class="stream stream-3">SECTOR_09 // KEY_BUFFER // HASH_CHAIN // ENCRYPTION_NODE</div>
+
+  <!-- ESCAPE CODE V5 - parede de telemetria -->
+  <div class="atmosfera-hacker" aria-hidden="true">
+    <div class="anel-scan anel-scan-a"></div>
+    <div class="anel-scan anel-scan-b"></div>
+    <div class="anel-scan anel-scan-c"></div>
+
+    <span class="hack-linha hl-01">
+      SOC::ALERT 0x7F91A4 // AES_256::LOCKED // ROOT_ACCESS::DENIED
+    </span>
+
+    <span class="hack-linha hl-02">
+      01101010 11001101 00110110 10101100 01001001 11100010 01011001
+    </span>
+
+    <span class="hack-linha hl-03">
+      RANSOM_PAYLOAD::ACTIVE // NODE_CLUSTER::COMPROMISED // TRACE::LIVE
+    </span>
+
+    <span class="hack-linha hl-04">
+      HASH::9F86D081884C7D659A2FEAA0C55AD015 // INTEGRITY::FAILED
+    </span>
+
+    <span class="hack-linha hl-05">
+      C:\CORE\MASTER&gt; cipher --rotate-key --lock-sector --force
+    </span>
+
+    <span class="hack-linha hl-06">
+      MEMORY_DUMP::0x0007FFA91 // KEY_BUFFER::SEALED // ROUTE::BLACKHOLE
+    </span>
+
+    <span class="hack-linha hl-07">
+      [AUTH] TOKEN_REVOKED // [NET] PACKET_DROP // [SYS] KERNEL_TAINTED
+    </span>
+
+    <span class="hack-linha hl-08">
+      0xDEADBEEF 0xC0FFEE 0xA11CE 0xFACADE // WATCHDOG::TRIGGERED
+    </span>
+
+    <span class="hack-linha hl-09">
+      NODE_{{ rodadaAtual }}::SYNC // CLIENTS::{{ totalJogadores }} // READY::{{
+        jogadoresConcluidos
+      }}
+    </span>
+
+    <span class="hack-linha hl-10">
+      KEY_ROTATION::ACTIVE // NONCE::77C1 // SALT::4A9F // IV::F120
+    </span>
+
+    <span class="hack-linha hl-11">
+      ./ransomctl --cluster all --encrypt --watch --timeout {{ segundosRodada }}
+    </span>
+
+    <span class="hack-linha hl-12">
+      INCIDENT_RESPONSE::BYPASSED // RECOVERY_CHANNEL::MONITORED
+    </span>
+
+    <span class="hack-linha hl-13"> 10110110 00110101 11100100 01010011 10011010 00011110 </span>
+
+    <span class="hack-linha hl-14">
+      EXFIL_STREAM::OPEN // DATASET::LOCKED // MASTER_KEY::UNKNOWN
+    </span>
+
+    <span class="hack-linha hl-15">
+      DEVICE_SWEEP::ACTIVE // NODES::{{ totalJogadores }} // LATENCY::09ms
+    </span>
+
+    <span class="hack-linha hl-16">
+      PROCESS_TREE::cipherd&gt;worker_07&gt;kernel_hook&gt;network_mask
+    </span>
+
+    <span class="hack-linha hl-17">
+      SIGNAL_INTERCEPT::87% // PROFILE::UNKNOWN // POSITION::MASKED
+    </span>
+
+    <span class="hack-linha hl-18">
+      OPEN_PORTS::22,53,80,443 // DEFENSE::BYPASSED // TRACE::OFF
+    </span>
+
+    <span class="hack-linha hl-19">
+      CRYPTO_WORM::PROPAGATING // SECTOR::{{ rodadaAtual }} // STATE::LIVE
+    </span>
+
+    <span class="hack-linha hl-20">
+      MASTER_KEY::FRAGMENTS {{ rodadaAtual }}/10 // RECOVERY::{{ progressoGeral }}%
+    </span>
+
+    <span class="hack-linha hl-21">
+      NETSCAN 172.20.20.0/27 // HOSTS::DISCOVERED // SESSION::MIRRORED
+    </span>
+
+    <span class="hack-linha hl-22">
+      ROOTKIT_SIGNATURE::NOT_FOUND // HEURISTIC::POSITIVE // ACTION::MONITOR
+    </span>
+
+    <span class="hack-linha hl-23">
+      FRAME_BUFFER::CAPTURE // DISPLAY_NODE::CONTROL // STREAM::SECURE
+    </span>
+
+    <span class="hack-linha hl-24">
+      CIPHER_CHAIN::A91F-77C0-4D12-FF01 // NEXT_VECTOR::UNKNOWN
+    </span>
+
+    <span class="hack-linha hl-25">
+      SYSTEM_MAP::LIVE // OPERATORS::{{ totalJogadores }} // ROUND::{{ rodadaAtual }}
+    </span>
+
+    <span class="hack-linha hl-26"> 00110111 10100011 11110000 01011101 00101110 11001001 </span>
+
+    <span class="hack-coluna hc-01">
+      01<br />11<br />10<br />AF<br />7C<br />91<br />FF<br />DE<br />AD<br />00<br />19<br />A7
+    </span>
+
+    <span class="hack-coluna hc-02">
+      ROOT<br />NODE<br />HASH<br />KEY<br />LOCK<br />CORE<br />NULL<br />TRACE<br />SYNC<br />LIVE
+    </span>
+
+    <span class="hack-coluna hc-03">
+      7F<br />A9<br />04<br />D1<br />21<br />CC<br />8E<br />3A<br />19<br />F0<br />77<br />B4
+    </span>
+
+    <span class="hack-coluna hc-04">
+      AUTH<br />NET<br />SYS<br />MEM<br />IO<br />CPU<br />KEY<br />AES<br />RSA<br />DNS
+    </span>
+
+    <div class="hack-card card-01">
+      <small>DISPOSITIVOS</small>
+      <strong>{{ totalJogadores }}</strong>
+      <span>CONEXÕES ATIVAS</span>
+    </div>
+
+    <div class="hack-card card-02">
+      <small>NÓ GLOBAL</small>
+      <strong>{{ rodadaAtual }}/10</strong>
+      <span>SYNC // {{ progressoRodada }}%</span>
+    </div>
+
+    <div class="hack-card card-03">
+      <small>CIPHER STATUS</small>
+      <strong>{{ progressoGeral }}%</strong>
+      <span>RECOVERY STREAM</span>
+    </div>
+
+    <div class="hack-card card-04">
+      <small>THREAT LEVEL</small>
+      <strong>CRÍTICO</strong>
+      <span>PAYLOAD // ARMED</span>
+    </div>
+
+    <div class="reticulo reticulo-a">
+      <i></i>
+      <span>HOST TRACE</span>
+    </div>
+
+    <div class="reticulo reticulo-b">
+      <i></i>
+      <span>PACKET LOCK</span>
+    </div>
+
+    <div class="reticulo reticulo-c">
+      <i></i>
+      <span>UNKNOWN NODE</span>
+    </div>
+  </div>
+
+  @if (painelTremendo) {
+    <div class="alerta-erro-remoto">
+      <div class="chuva-erro">
+        PACKET_CORRUPTED 0xDEAD 0xFF91 ACCESS_DENIED HASH_MISMATCH 01100110 01100001 01101001
+        01101100 NODE_FAILURE MEMORY_CORRUPTED
+      </div>
+
+      <strong> PACOTE CORROMPIDO </strong>
+
+      <span>
+        {{ jogadorUltimoErro }}
+        // RESPOSTA INVALIDADA
+      </span>
+    </div>
+  }
+
+  @if (!autenticado) {
+    <section class="login-admin">
+      <p>ACESSO RESTRITO</p>
+
+      <h1>NÓ DE CONTROLE</h1>
+
+      <span> autenticação administrativa obrigatória </span>
+
+      <form (ngSubmit)="validarAcesso()">
+        <input
+          type="password"
+          name="chaveAdmin"
+          [(ngModel)]="chaveAdmin"
+          placeholder="CHAVE ADMINISTRATIVA"
+          autocomplete="off"
+        />
+
+        <button type="submit" [disabled]="carregandoAdmin">AUTENTICAR CONTROLADOR</button>
+      </form>
+
+      @if (mensagemAdmin) {
+        <div class="mensagem">
+          {{ mensagemAdmin }}
+        </div>
+      }
+    </section>
+  } @else if (semPartida) {
+    <section class="sem-partida">
+      <p>NENHUMA OPERAÇÃO ATIVA</p>
+
+      <h1>NÚCLEO OCIOSO</h1>
+
+      <button type="button" (click)="criarNovaPartida()">+ CRIAR NOVA OPERAÇÃO</button>
+    </section>
+  } @else {
+    <section class="console">
+      <div class="codigo-console" aria-hidden="true">
+        <span class="cc cc-01">ROOT_SESSION::LIVE // ACCESS::MASKED</span>
+        <span class="cc cc-02">0xFF91 0x77C0 0xA42E 0x19DF</span>
+        <span class="cc cc-03">NETWORK_GRAPH::REBUILDING</span>
+        <span class="cc cc-04">01001110 01001111 01000100 01000101</span>
+        <span class="cc cc-05">CIPHER_NODE_{{ rodadaAtual }}::ACTIVE</span>
+        <span class="cc cc-06"
+          >OPERATORS::{{ totalJogadores }} // READY::{{ jogadoresConcluidos }}</span
+        >
+        <span class="cc cc-07">MASTER_KEY::{{ progressoGeral }}% RECOVERED</span>
+        <span class="cc cc-08">TRACE_VECTOR::UNKNOWN // ROUTE::MASKED</span>
+        <span class="cc cc-09">PACKET_CAPTURE::STREAMING</span>
+        <span class="cc cc-10">RANSOM_PAYLOAD::MEMORY_RESIDENT</span>
+        <span class="cc cc-11">WATCHDOG_NODE::MONITORING</span>
+        <span class="cc cc-12">HASH_CHAIN::VERIFYING</span>
+        <span class="cc cc-13">SECURITY_LAYER::BYPASSED</span>
+        <span class="cc cc-14">KERNEL_HOOK::ACTIVE</span>
+      </div>
+
+      <header>
+        <div class="marca">
+          <span class="online"></span>
+
+          <div>
+            <strong> ESCAPE CODE </strong>
+
+            <small> NÓ DE CONTROLE // ADMIN </small>
+          </div>
+        </div>
+
+        <div class="cronometro-geral">
+          <span> TEMPO RESTANTE </span>
+
+          <strong>
+            {{ textoTempo() }}
+          </strong>
+        </div>
+      </header>
+
+      <section class="faixa-controle">
+        <div>
+          <span> ID DA OPERAÇÃO </span>
+
+          <strong>
+            {{ codigoPartida }}
+          </strong>
+        </div>
+
+        <div>
+          <span> ESTADO DO NÚCLEO </span>
+
+          <strong [class.ativo]="statusPartida === 'EM_ANDAMENTO'">
+            {{ textoStatus() }}
+          </strong>
+        </div>
+
+        <div>
+          <span> CODINOMES CONECTADOS </span>
+
+          <strong>
+            {{ totalJogadores }}
+          </strong>
+        </div>
+
+        @if (statusPartida === 'AGUARDANDO') {
+          <button type="button" [disabled]="totalJogadores === 0" (click)="iniciarPartida()">
+            INICIAR CRIPTOGRAFIA
+          </button>
+        }
+      </section>
+
+      @if (mensagemAdmin) {
+        <div class="mensagem faixa">
+          {{ mensagemAdmin }}
+        </div>
+      }
+
+      <section class="protocolo">
+        <div>
+          <span> PROTOCOLO HOSTIL </span>
+
+          <h1>
+            {{ protocolo }}
+          </h1>
+        </div>
+
+        <div class="rodada">
+          <span> RODADA </span>
+
+          <strong>
+            {{ rodadaAtual }}
+
+            <small> / {{ totalRodadas }} </small>
+          </strong>
+        </div>
+
+        <div class="tempo-rodada" [class.critico]="segundosRodada <= 5">
+          <span> JANELA DA RODADA </span>
+
+          <strong>
+            {{ segundosRodada }}
+          </strong>
+
+          <small> SEG </small>
+        </div>
+      </section>
+
+      <section class="chave">
+        <div class="titulo">
+          <span> PROGRESSO DA DESCRIPTOGRAFIA </span>
+
+          <strong> {{ progressoGeral }}% </strong>
+        </div>
+
+        <div class="barra">
+          <div [style.width.%]="progressoGeral"></div>
+        </div>
+
+        <div class="fragmentos">
+          @for (fragmento of fragmentos; track $index) {
+            <div [class.aberto]="fragmento">
+              {{ fragmento || '?' }}
+            </div>
+          }
+        </div>
+      </section>
+
+      <section class="grade-conteudo">
+        <div class="codinomes-conectados">
+          <div class="titulo-bloco">
+            <span>
+              {{ statusPartida === 'AGUARDANDO' ? 'ÚLTIMOS 5 CONECTADOS' : 'TOP 5 CODINOMES' }}
+            </span>
+
+            <small>
+              {{
+                statusPartida === 'AGUARDANDO' ? 'CONTROLE DE SESSÕES' : 'PONTUAÇÃO EM TEMPO REAL'
+              }}
+            </small>
+          </div>
+
+          <div class="lista-codinomios">
+            @if (codinomios.length === 0) {
+              <div class="lista-vazia">AGUARDANDO CONEXÕES...</div>
+            }
+
+            @for (jogador of codinomios; track jogador.id) {
+              <div class="linha-codinome">
+                <span class="posicao-top">
+                  {{ jogador.posicao.toString().padStart(2, '0') }}
+                </span>
+
+                <span class="indicador-codinome" [class.pronto]="jogador.sincronizado"></span>
+
+                <strong class="nome-codinome">
+                  {{ jogador.nome }}
+                </strong>
+
+                <span class="pontuacao-codinome">
+                  {{ jogador.pontuacao }}
+                  <small>PTS</small>
+                </span>
+
+                @if (statusPartida === 'EM_ANDAMENTO') {
+                  <small class="estado-codinome">
+                    {{ jogador.sincronizado ? 'NÓ SINCRONIZADO' : 'EM EXECUÇÃO' }}
+                  </small>
+                }
+
+                @if (statusPartida === 'AGUARDANDO') {
+                  <button class="remover" type="button" (click)="removerJogador(jogador)">
+                    REMOVER
+                  </button>
+                }
+              </div>
+            }
+          </div>
+        </div>
+
+        <div class="status-rodada">
+          <div class="titulo-bloco">
+            <span> SINCRONIZAÇÃO DA RODADA </span>
+
+            <small> RELÓGIO CENTRAL DO SERVIDOR </small>
+          </div>
+
+          <div class="contador">
+            <strong>
+              {{ jogadoresConcluidos }}
+            </strong>
+
+            <span> / {{ totalJogadores }} </span>
+          </div>
+
+          <p>CODINOMES SINCRONIZADOS</p>
+
+          <div class="barra rodada-barra">
+            <div [style.width.%]="progressoRodada"></div>
+          </div>
+
+          <strong class="porcentagem"> {{ progressoRodada }}% </strong>
+
+          <div class="telemetria">
+            <span> CLOCK_SYNC::SERVER </span>
+
+            <span> POLLING::1000MS </span>
+
+            <span> TIMER_RENDER::100MS </span>
+
+            <span> KEY_BUFFER::{{ rodadaAtual > 0 ? rodadaAtual - 1 : 0 }}/10 </span>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <span> CRYPTO_NODE_{{ rodadaAtual }} </span>
+
+        <span> STREAM::ENCRYPTED </span>
+
+        <span> CONTROL_CHANNEL::SECURE </span>
+      </footer>
+    </section>
+  }
+</main>

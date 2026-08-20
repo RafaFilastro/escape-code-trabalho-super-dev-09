@@ -860,4 +860,3 @@ O Escape Code não é uma ferramenta de invasão, ransomware ou exploração de 
 ---
 
 Se você gostou do projeto, deixe uma ⭐ no repositório.
-# escape-code-trabalho-super-dev-09

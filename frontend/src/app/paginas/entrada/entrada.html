@@ -1,0 +1,266 @@
+<main class="entrada">
+  <div class="grade"></div>
+  <div class="scanlines"></div>
+
+  <!--
+    A tela de entrada agora recebe a mesma densidade
+    visual do painel: streams, colunas, scanners,
+    retículos e códigos dentro do próprio terminal.
+  -->
+  <div class="atmosfera-hacker" aria-hidden="true">
+    <div class="anel-scan anel-a"></div>
+    <div class="anel-scan anel-b"></div>
+
+    <span class="hack-linha hl-01"> 0xFF91A42E // ROOT_ACCESS::DENIED // CIPHER_NODE::LIVE </span>
+
+    <span class="hack-linha hl-02"> 01101001 11100010 01010111 00110101 11001010 00011110 </span>
+
+    <span class="hack-linha hl-03">
+      RANSOM_PAYLOAD::ACTIVE // NETWORK_TRACE::MASKED // AUTH::REVOKED
+    </span>
+
+    <span class="hack-linha hl-04">
+      HASH::9F86D081884C7D659A2FEAA0C55AD015 // INTEGRITY::FAILED
+    </span>
+
+    <span class="hack-linha hl-05"> C:\SYSTEM\CORE&gt; unlock_master_key --force --node 01 </span>
+
+    <span class="hack-linha hl-06">
+      MEMORY_DUMP::0x0007FFA91 // BUFFER::SEALED // KEY::UNKNOWN
+    </span>
+
+    <span class="hack-linha hl-07">
+      PACKET_CAPTURE::ACTIVE // SRC::172.20.20.29 // DST::BLACKHOLE
+    </span>
+
+    <span class="hack-linha hl-08"> PROCESS::cipherd PID:7341 // PRIVILEGE::SYSTEM </span>
+
+    <span class="hack-linha hl-09"> ZERO_DAY_VECTOR::UNKNOWN // SIGNATURE::NOT_FOUND </span>
+
+    <span class="hack-linha hl-10"> DEVICE_SWEEP::ACTIVE // LATENCY::08ms // SIGNAL::91% </span>
+
+    <span class="hack-linha hl-11"> CTOS_LINK::BYPASSED // WATCHDOG_NODE::MONITORING </span>
+
+    <span class="hack-linha hl-12"> 0xDEADBEEF 0xC0FFEE 0xA11CE 0xFACADE </span>
+
+    <span class="hack-linha hl-13"> AUTH_TOKEN::NULL // SESSION::ENCRYPTED // TRACE::LIVE </span>
+
+    <span class="hack-linha hl-14"> KEY_ROTATION::ACTIVE // NONCE::77C1 // SALT::4A9F </span>
+
+    <span class="hack-linha hl-15"> FIREWALL_CHAIN::BROKEN // PORT::443 // ROUTE::MASKED </span>
+
+    <span class="hack-linha hl-16"> DATA_EXFIL::PAUSED // RECOVERY_PROTOCOL::ARMED </span>
+
+    <span class="hack-linha hl-17"> 11000110 01010101 11100001 00011110 10110010 01101001 </span>
+
+    <span class="hack-linha hl-18"> SHELL&gt; sudo ./escape-code --identify-operator </span>
+
+    <span class="hack-coluna coluna-a">
+      01<br />
+      10<br />
+      FF<br />
+      A7<br />
+      91<br />
+      0C<br />
+      DE<br />
+      AD<br />
+      77<br />
+      B4<br />
+      19
+    </span>
+
+    <span class="hack-coluna coluna-b">
+      ROOT<br />
+      NODE<br />
+      HASH<br />
+      KEY<br />
+      CORE<br />
+      NULL<br />
+      TRACE<br />
+      SYNC
+    </span>
+
+    <div class="hud hud-a">
+      <small>HOST TRACE</small>
+      <strong>0x01A7F</strong>
+      <span>SIGNAL // 91%</span>
+    </div>
+
+    <div class="hud hud-b">
+      <small>THREAT LEVEL</small>
+      <strong>CRÍTICO</strong>
+      <span>PAYLOAD // ARMED</span>
+    </div>
+
+    <div class="reticulo reticulo-a">
+      <i></i>
+      <span>UNKNOWN NODE</span>
+    </div>
+
+    <div class="reticulo reticulo-b">
+      <i></i>
+      <span>TRACKING DEVICE</span>
+    </div>
+  </div>
+
+  <section class="terminal">
+    <div class="codigo-terminal" aria-hidden="true">
+      <span class="ct ct-01"> ROOT_SESSION::LIVE </span>
+
+      <span class="ct ct-02"> 0xFF91 0x77C0 0xA42E </span>
+
+      <span class="ct ct-03"> NETWORK_GRAPH::REBUILDING </span>
+
+      <span class="ct ct-04"> 01001110 01001111 01000100 01000101 </span>
+
+      <span class="ct ct-05"> SECURITY_LAYER::BYPASSED </span>
+
+      <span class="ct ct-06"> KEY_BUFFER::LOCKED </span>
+
+      <span class="ct ct-07"> PACKET_CAPTURE::STREAMING </span>
+
+      <span class="ct ct-08"> RANSOM_PAYLOAD::MEMORY_RESIDENT </span>
+
+      <span class="ct ct-09"> WATCHDOG_NODE::MONITORING </span>
+
+      <span class="ct ct-10"> AUTH::WAITING_OPERATOR </span>
+    </div>
+
+    <header>
+      <div class="marca">
+        <span class="online"></span>
+
+        <strong> ESCAPE CODE </strong>
+      </div>
+
+      <span class="node"> SECURE NODE // 01 </span>
+    </header>
+
+    @if (carregando) {
+      <section class="estado-central">
+        <p>VARREDURA DE REDE</p>
+
+        <h1>
+          LOCALIZANDO
+          <span>OPERAÇÃO...</span>
+        </h1>
+
+        <div class="loader">
+          <i></i>
+          <i></i>
+          <i></i>
+        </div>
+      </section>
+    } @else if (!partida) {
+      <section class="estado-central indisponivel">
+        <p>CONEXÃO INTERROMPIDA</p>
+
+        <h1>
+          SISTEMA
+          <span>INDISPONÍVEL</span>
+        </h1>
+
+        <small> Nenhuma operação está disponível neste momento. </small>
+
+        <button type="button" (click)="buscarPartidaAtiva()">NOVA VARREDURA</button>
+      </section>
+    } @else {
+      <section class="conteudo">
+        <div class="alerta">
+          <span class="icone"> ! </span>
+
+          <div>
+            <small> ALERTA DE SEGURANÇA </small>
+
+            <strong>
+              {{ partida.nome_protocolo }}
+            </strong>
+          </div>
+        </div>
+
+        <p class="protocolo">PROTOCOLO DE RECUPERAÇÃO ATIVO</p>
+
+        <h1>
+          O SISTEMA FOI
+          <span>COMPROMETIDO.</span>
+        </h1>
+
+        <p class="descricao">
+          Dez fragmentos da chave de recuperação estão protegidos por desafios técnicos.
+          Identifique-se para entrar na operação.
+        </p>
+
+        <div class="status-grid">
+          <div>
+            <small> ESTADO </small>
+
+            <strong>
+              {{ textoStatus() }}
+            </strong>
+          </div>
+
+          <div>
+            <small> CODINOMES </small>
+
+            <strong>
+              {{ partida.quantidade_jogadores }}
+            </strong>
+          </div>
+
+          <div>
+            <small> FRAGMENTOS </small>
+
+            <strong> {{ partida.rodada_atual }}/10 </strong>
+          </div>
+        </div>
+
+        @if (partida.status === 'AGUARDANDO') {
+          <form (ngSubmit)="entrar()">
+            <label for="nome"> IDENTIFICAÇÃO DO CODINOME </label>
+
+            <div class="campo">
+              <span> &gt; </span>
+
+              <input
+                id="nome"
+                type="text"
+                name="nome"
+                [(ngModel)]="nome"
+                maxlength="50"
+                autocomplete="off"
+                placeholder="Digite seu codinome"
+              />
+            </div>
+
+            <small class="aviso-reuso">
+              CODINOME REUTILIZÁVEL EM NOVA OPERAÇÃO // NOVA PARTIDA = PONTUAÇÃO ZERADA
+            </small>
+
+            <button type="submit">
+              CONECTAR AO SISTEMA
+              <span>→</span>
+            </button>
+          </form>
+        } @else {
+          <div class="bloqueio">
+            <strong> ACESSO BLOQUEADO </strong>
+
+            <span> A operação já está em curso. </span>
+          </div>
+        }
+
+        @if (mensagemErro) {
+          <div class="mensagem-erro">
+            {{ mensagemErro }}
+          </div>
+        }
+      </section>
+    }
+
+    <footer>
+      <span> CONNECTION::ENCRYPTED </span>
+
+      <span> ESCAPE_CODE_V1.0 </span>
+    </footer>
+  </section>
+</main>

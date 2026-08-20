@@ -1,0 +1,155 @@
+<main class="pagina">
+  <div class="grade-fundo"></div>
+  <div class="scanlines"></div>
+
+  <div class="codigo codigo-1">0xFF91 A42E 77C0 19DF</div>
+
+  <div class="codigo codigo-2">01100101 11011010 00101101</div>
+
+  <div class="codigo codigo-3">ROOT_ACCESS // CRYPTO_OVERRIDE</div>
+
+  <div class="codigo codigo-4">AES_NODE_10 // MASTER_KEY_ACCEPTED</div>
+
+  @if (!descriptografiaConcluida) {
+    <section class="descriptografia">
+      <div class="alerta">MASTER KEY ASSEMBLED</div>
+
+      <h1>
+        INICIANDO
+        <span>DESCRIPTOGRAFIA</span>
+      </h1>
+
+      <p class="chave-titulo">MASTER RECOVERY KEY</p>
+
+      <div class="chave">
+        {{ chaveMestre }}
+      </div>
+
+      <div class="terminal-log">
+        <p>> validating fragments... OK</p>
+
+        <p>> assembling master key... OK</p>
+
+        <p>> bypassing encryption layer...</p>
+
+        <p>
+          > decrypting system core
+          <span class="piscar">_</span>
+        </p>
+      </div>
+
+      <div class="barra-container">
+        <div class="barra-info">
+          <span> DECRYPTION PROGRESS </span>
+
+          <strong> {{ progresso }}% </strong>
+        </div>
+
+        <div class="barra">
+          <div [style.width.%]="progresso"></div>
+        </div>
+      </div>
+
+      <div class="status">
+        @if (progresso < 30) {
+          ANALYZING ENCRYPTION...
+        } @else if (progresso < 60) {
+          BREAKING SECURITY LAYERS...
+        } @else if (progresso < 90) {
+          OVERRIDING SYSTEM CORE...
+        } @else {
+          FINALIZING RECOVERY...
+        }
+      </div>
+    </section>
+  } @else {
+    <section class="vitoria">
+      <div class="glitch-fundo">SYSTEM RECOVERED</div>
+
+      <p class="codigo-status">ENCRYPTION SUCCESSFULLY BROKEN</p>
+
+      <h1 class="titulo-vitoria" data-text="SYSTEM RECOVERED">SYSTEM RECOVERED</h1>
+
+      <p class="vencedor-label">OPERADOR RESPONSÁVEL</p>
+
+      <div class="vencedor">
+        {{ vencedor.nome }}
+      </div>
+
+      <div class="pontuacao">
+        <span> FINAL SCORE </span>
+
+        <strong>
+          {{ vencedor.pontos }}
+        </strong>
+
+        <small> POINTS </small>
+      </div>
+
+      <div class="linha-sucesso">
+        <span></span>
+
+        ESCAPE CODE // MISSION COMPLETE
+
+        <span></span>
+      </div>
+
+      <div class="ranking-final">
+        <div class="ranking-titulo">
+          <span> FINAL RANKING </span>
+
+          <span> STATUS // COMPLETE </span>
+        </div>
+
+        @for (jogador of ranking; track jogador.id) {
+          <div class="ranking-jogador" [class.primeiro]="jogador.posicao === 1">
+            <span class="posicao">
+              {{ jogador.posicao.toString().padStart(2, '0') }}
+            </span>
+
+            <strong class="nome">
+              {{ jogador.nome }}
+            </strong>
+
+            <span class="pontos-ranking">
+              {{ jogador.pontos }}
+            </span>
+          </div>
+        }
+      </div>
+
+      <div class="acoes">
+        @if (ehAdmin) {
+          <button
+            class="botao-novo"
+            type="button"
+            [disabled]="criandoNovaPartida"
+            (click)="criarNovoJogo()"
+          >
+            @if (criandoNovaPartida) {
+              CRIANDO NOVA PARTIDA...
+            } @else {
+              + CRIAR NOVO JOGO
+            }
+          </button>
+        }
+
+        <button class="botao-inicio" type="button" (click)="irParaInicio()">
+          IR PARA TELA INICIAL
+        </button>
+      </div>
+
+      @if (mensagemAcao) {
+        <p class="mensagem-acao">
+          {{ mensagemAcao }}
+        </p>
+      }
+
+      <footer>
+        <span> RECOVERY STATUS // SUCCESS </span>
+
+        <span> ESCAPE_CODE_v1.0 </span>
+      </footer>
+    </section>
+  }
+</main>

@@ -1,0 +1,359 @@
+<main
+  class="jogo"
+  [class.tremendo]="bloqueadoPorErro"
+  [class.rodada-critica]="rodadaAtual > 0 && tempoRodada <= 5"
+>
+  <div class="grade"></div>
+  <div class="scanlines"></div>
+
+  <div class="codigo codigo-a">0xAF91 :: AES256 :: BLOCK_07 :: ROOT_DENIED</div>
+
+  <div class="codigo codigo-b">01101001 11001010 00110101 11100010</div>
+
+  <div class="codigo codigo-c">ENCRYPT_NODE // PAYLOAD // MEMORY_DUMP // KEY_FRAGMENT</div>
+
+  <!--
+    ESCAPE CODE V5
+    Fundo denso de telemetria inspirado em interfaces
+    techno-hacker de jogos, sem interferir na jogabilidade.
+  -->
+  <div class="atmosfera-hacker" aria-hidden="true">
+    <div class="anel-scan anel-scan-a"></div>
+    <div class="anel-scan anel-scan-b"></div>
+
+    <span class="hack-linha hl-01"> 0x7F91A4 :: AES_256::BLOCK_08 :: ROOT_ACCESS::DENIED </span>
+
+    <span class="hack-linha hl-02"> 01101010 11001101 00110110 10101100 01001001 11100010 </span>
+
+    <span class="hack-linha hl-03">
+      PAYLOAD.EXECUTE() // CRYPTO_LOCK // SECTOR_04 // NODE_COMPROMISED
+    </span>
+
+    <span class="hack-linha hl-04"> HASH::9F86D081884C7D659A2FEAA0C55AD015 // VERIFY::FAILED </span>
+
+    <span class="hack-linha hl-05">
+      C:\SYSTEM\CORE&gt; encryption_sequence --force --sector all
+    </span>
+
+    <span class="hack-linha hl-06">
+      MEMORY_DUMP::0x0007FFA91 // KEY_BUFFER::LOCKED // TRACE::ACTIVE
+    </span>
+
+    <span class="hack-linha hl-07"> 11000110 01010101 11100001 00011110 10110010 01101001 </span>
+
+    <span class="hack-linha hl-08">
+      RANSOM_NODE_07 :: HANDSHAKE::REJECTED :: ACCESS_VECTOR::UNKNOWN
+    </span>
+
+    <span class="hack-linha hl-09">
+      [SYS] CHUNK_14 ENCRYPTED // [NET] PACKET_DROP // [AUTH] TOKEN_REVOKED
+    </span>
+
+    <span class="hack-linha hl-10"> 0xDEADBEEF 0xC0FFEE 0xA11CE // KERNEL_CHANNEL::MONITORED </span>
+
+    <span class="hack-linha hl-11">
+      KEY_ROTATION::ACTIVE // SALT::4A9F // NONCE::77C1 // BUFFER::SEALED
+    </span>
+
+    <span class="hack-linha hl-12">
+      ./decrypt --node {{ rodadaAtual }} --timeout {{ tempoRodada }} --force
+    </span>
+
+    <span class="hack-linha hl-13"> DEVICE_TRACE::8F-91-AC // LATENCY::12ms // SIGNAL::87% </span>
+
+    <span class="hack-linha hl-14">
+      CTOS_LINK::BYPASSED // FIREWALL_CHAIN::BROKEN // PORT::443 OPEN
+    </span>
+
+    <span class="hack-linha hl-15">
+      PROCESS::cipherd PID:7341 // PRIVILEGE::SYSTEM // INTEGRITY::LOW
+    </span>
+
+    <span class="hack-linha hl-16"> 01001101 01000001 01010011 01010100 01000101 01010010 </span>
+
+    <span class="hack-linha hl-17"> PACKET_CAPTURE::ACTIVE // SRC::10.4.7.19 // DST::UNKNOWN </span>
+
+    <span class="hack-linha hl-18">
+      DATA_EXFIL::PAUSED // RECOVERY_NODE::{{ rodadaAtual }}/10
+    </span>
+
+    <span class="hack-linha hl-19">
+      SHELL&gt; sudo ./unlock_core --fragment={{ fragmento || 'NULL' }}
+    </span>
+
+    <span class="hack-linha hl-20">
+      WATCHDOG::TRACE // PROFILE::CODINOME // SESSION::ENCRYPTED
+    </span>
+
+    <span class="hack-linha hl-21">
+      KERNEL PANIC AVOIDED // FALLBACK_CHANNEL::READY // ROUTE::MASKED
+    </span>
+
+    <span class="hack-linha hl-22">
+      ZERO_DAY_VECTOR::UNKNOWN // SIGNATURE::NOT_FOUND // SCAN::RUNNING
+    </span>
+
+    <span class="hack-coluna hc-01">
+      01<br />10<br />11<br />00<br />AF<br />7C<br />91<br />FF<br />10<br />01<br />DE<br />AD
+    </span>
+
+    <span class="hack-coluna hc-02">
+      ROOT<br />HASH<br />NODE<br />KEY<br />LOCK<br />CORE<br />NULL<br />TRACE<br />SYNC
+    </span>
+
+    <span class="hack-coluna hc-03">
+      7F<br />A9<br />04<br />D1<br />21<br />CC<br />8E<br />3A<br />19<br />F0<br />77
+    </span>
+
+    <div class="hack-card card-01">
+      <small>NÓ DETECTADO</small>
+      <strong>0x{{ rodadaAtual }}A7F</strong>
+      <span>SINAL // 87%</span>
+    </div>
+
+    <div class="hack-card card-02">
+      <small>VETOR ATIVO</small>
+      <strong>{{ desafio?.tema || 'SCAN' }}</strong>
+      <span>TRACE // LIVE</span>
+    </div>
+
+    <div class="hack-card card-03">
+      <small>JANELA</small>
+      <strong>{{ tempoRodada }}s</strong>
+      <span>CIPHER // RUNNING</span>
+    </div>
+
+    <div class="reticulo reticulo-a">
+      <i></i>
+      <span>TRACKING NODE</span>
+    </div>
+
+    <div class="reticulo reticulo-b">
+      <i></i>
+      <span>UNKNOWN DEVICE</span>
+    </div>
+  </div>
+
+  @if (bloqueadoPorErro) {
+    <section class="overlay erro">
+      <div class="chuva-codigo">
+        0xFA11 0xDEAD 0xBEEF 11001100 CRYPTO_FAIL HASH_MISMATCH ACCESS_DENIED 01100110 01100001
+        01101001 01101100 MEMORY_CORRUPTED PAYLOAD_REJECTED ROOT::DENIED
+      </div>
+
+      <strong> PACOTE CORROMPIDO </strong>
+
+      <span> ACESSO NEGADO </span>
+
+      <small> RECALIBRANDO NÓ... </small>
+    </section>
+  }
+
+  @if (exibindoTimeout) {
+    <section class="overlay timeout">
+      <div class="chuva-codigo">
+        TIMER::NULL TIMER::NULL TIMER::NULL BUFFER_TIMEOUT 0x000000 DEADLINE_EXCEEDED CLOCK_DESYNC
+        AUTO_RECOVERY FALLBACK_200
+      </div>
+
+      <strong> TEMPO ESGOTADO </strong>
+
+      <span>
+        RESPOSTA CORRETA:
+        {{ alternativaCorretaTimeout }}
+      </span>
+
+      <small>
+        +{{ pontosGanhos }}
+        PONTOS DE CONTINGÊNCIA
+      </small>
+    </section>
+  }
+
+  <section class="terminal">
+    <div class="codigo-terminal" aria-hidden="true">
+      <span class="ct ct-01">AUTH::TOKEN_77F9 // BYPASS::RUNNING</span>
+      <span class="ct ct-02">0x19AF 0x7C01 0xDEAD 0x991A</span>
+      <span class="ct ct-03">KEY_BUFFER // ENCRYPT // ROTATE // LOCK</span>
+      <span class="ct ct-04">01101001 00110110 11100001 10100110</span>
+      <span class="ct ct-05">TRACE_ROUTE --node={{ rodadaAtual }} --silent</span>
+      <span class="ct ct-06">SYSTEM_OVERRIDE::PENDING</span>
+      <span class="ct ct-07">PACKET::CAPTURED // HASH::INVALID</span>
+      <span class="ct ct-08">MASTER_KEY_FRAGMENT::{{ fragmento || '????' }}</span>
+      <span class="ct ct-09">ROOT_SHELL::MASKED // SESSION::LIVE</span>
+      <span class="ct ct-10">DEVICE_PROFILE::UNKNOWN</span>
+      <span class="ct ct-11">FIREWALL::RULE_443_BYPASS</span>
+      <span class="ct ct-12">MEMORY::SCAN // 0xFF91A7C0</span>
+    </div>
+
+    <header>
+      <div class="identidade">
+        <span class="online"></span>
+
+        <div>
+          <strong> ESCAPE CODE </strong>
+
+          <small>
+            CODINOME //
+            {{ jogadorNome }}
+          </small>
+        </div>
+      </div>
+
+      <div class="tempo-geral">
+        <span> TEMPO DA MISSÃO </span>
+
+        <strong>
+          {{ textoTempoPartida() }}
+        </strong>
+      </div>
+    </header>
+
+    @if (aguardandoSincronizacao) {
+      <section class="espera sucesso">
+        @if (rodadaAtual === 0) {
+          <p>CANAL CRIPTOGRAFADO</p>
+
+          <h1 class="aguardando-texto">AGUARDANDO COMANDO</h1>
+
+          <div class="nucleo">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="log">
+            > sessão autenticada<br />
+            > codinome reconhecido<br />
+            > aguardando liberação do controlador<span>_</span>
+          </div>
+        } @else {
+          <p>NÓ DESCRIPTOGRAFADO</p>
+
+          @if (fragmento) {
+            <h1>
+              {{ fragmento }}
+            </h1>
+          }
+
+          @if (pontosGanhos > 0) {
+            <strong> +{{ pontosGanhos }} PONTOS </strong>
+          }
+
+          <div class="sincronizando">AGUARDANDO OS DEMAIS CODINOMES</div>
+
+          <div class="nucleo">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="log">
+            > resposta validada<br />
+            > fragmento anexado à chave mestre<br />
+            > sincronizando rodada {{ rodadaAtual }}/10<br />
+            > próxima rodada será liberada automaticamente<span>_</span>
+          </div>
+        }
+      </section>
+    } @else if (desafio) {
+      <section class="cabecalho-rodada">
+        <div>
+          <span> RODADA </span>
+
+          <strong>
+            {{ desafio.rodada }}
+
+            <small> /10 </small>
+          </strong>
+        </div>
+
+        <div class="tema">
+          <span> VETOR DE ATAQUE </span>
+
+          <strong>
+            {{ desafio.tema }}
+          </strong>
+        </div>
+
+        <div class="cronometro" [class.critico]="tempoRodada <= 5">
+          <span> JANELA DE RESPOSTA </span>
+
+          <strong>
+            {{ tempoRodada }}
+          </strong>
+
+          <small> SEG </small>
+        </div>
+      </section>
+
+      <div class="barra-tempo">
+        <div [style.width.%]="(tempoRodada / duracaoRodada) * 100"></div>
+      </div>
+
+      <section class="pergunta">
+        <div class="valor">
+          <span> VALOR DO NÓ </span>
+
+          <strong>
+            {{ pontuacaoDisponivel }}
+          </strong>
+
+          <small> PONTOS </small>
+        </div>
+
+        <h2>
+          {{ desafio.pergunta }}
+        </h2>
+
+        <div class="alternativas">
+          @for (alternativa of alternativas; track alternativa.letra) {
+            <button
+              type="button"
+              [disabled]="
+                alternativaBloqueada(alternativa.letra) ||
+                respondendo ||
+                bloqueadoPorErro ||
+                exibindoTimeout
+              "
+              [class.bloqueada]="alternativaBloqueada(alternativa.letra)"
+              (click)="responder(alternativa.letra)"
+            >
+              <span class="letra">
+                {{ alternativa.letra }}
+              </span>
+
+              <span class="texto">
+                {{ alternativa.texto }}
+              </span>
+
+              @if (alternativaBloqueada(alternativa.letra)) {
+                <span class="x"> BLOQUEADA </span>
+              }
+            </button>
+          }
+        </div>
+      </section>
+    } @else {
+      <section class="espera">
+        <p>RECUPERANDO SINAL</p>
+
+        <h1 class="aguardando-texto">SINCRONIZANDO NÓ</h1>
+
+        <div class="nucleo">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </section>
+    }
+
+    <footer>
+      <span> CRIPTOGRAFIA ATIVA </span>
+
+      <span> NÓ_{{ rodadaAtual.toString().padStart(2, '0') }} </span>
+
+      <span> CONEXÃO SEGURA </span>
+    </footer>
+  </section>
+</main>

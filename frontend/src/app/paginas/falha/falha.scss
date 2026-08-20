@@ -1,0 +1,166 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.falha {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #120303;
+  color: #ff5252;
+  animation: fundo 0.35s infinite alternate;
+}
+
+.codigos {
+  position: absolute;
+  inset: -20%;
+  color: rgba(255, 70, 70, 0.16);
+  font:
+    22px/2.4 'Courier New',
+    monospace;
+  transform: rotate(-7deg);
+  animation: descer 2s linear infinite;
+}
+
+section {
+  position: relative;
+  z-index: 2;
+  width: min(900px, 92vw);
+  text-align: center;
+}
+
+section p {
+  font:
+    10px 'Courier New',
+    monospace;
+  letter-spacing: 5px;
+}
+
+section h1 {
+  margin: 10px 0;
+  font-size: clamp(45px, 9vw, 100px);
+}
+
+section > strong {
+  display: block;
+  margin: 30px 0 5px;
+  color: #fff;
+  font:
+    900 clamp(90px, 18vw, 210px) 'Courier New',
+    monospace;
+}
+
+section > small {
+  color: #ff8989;
+  font:
+    9px 'Courier New',
+    monospace;
+  letter-spacing: 4px;
+}
+
+.destruido {
+  background: #000;
+  color: #fff;
+  animation: explosao 0.7s ease-out;
+}
+
+.final h1 {
+  color: #fff;
+  font-size: clamp(55px, 11vw, 125px);
+}
+
+.final button {
+  margin-top: 30px;
+  min-height: 50px;
+  padding: 0 24px;
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+  font:
+    700 10px 'Courier New',
+    monospace;
+  cursor: pointer;
+}
+
+@keyframes fundo {
+  from {
+    background: #090202;
+  }
+  to {
+    background: #1d0303;
+  }
+}
+
+@keyframes descer {
+  from {
+    transform: translateY(-10%) rotate(-7deg);
+  }
+
+  to {
+    transform: translateY(10%) rotate(-7deg);
+  }
+}
+
+@keyframes explosao {
+  0% {
+    background: #fff;
+  }
+  15% {
+    background: #ff2d2d;
+  }
+  35% {
+    background: #531010;
+  }
+  100% {
+    background: #000;
+  }
+}
+
+/* Ruído visual durante o PROTOCOLO ZERO */
+.falha::before,
+.falha::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.falha::before {
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0,
+    transparent 37px,
+    rgba(255, 45, 45, 0.025) 38px,
+    transparent 39px
+  );
+  animation: varreduraFalha 0.22s steps(2) infinite;
+}
+
+.falha::after {
+  background: linear-gradient(transparent 0%, rgba(255, 40, 40, 0.08) 49%, transparent 51%);
+  background-size: 100% 120px;
+  animation: scannerFalha 1.8s linear infinite;
+}
+
+@keyframes varreduraFalha {
+  from {
+    transform: translateX(-5px);
+  }
+
+  to {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes scannerFalha {
+  from {
+    background-position: 0 -120px;
+  }
+
+  to {
+    background-position: 0 100vh;
+  }
+}

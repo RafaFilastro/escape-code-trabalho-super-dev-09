@@ -1,0 +1,1524 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.jogo {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 22px;
+  background: radial-gradient(circle at 50% 30%, #102018 0%, #070b0d 48%, #020304 100%);
+  color: #e8f0ec;
+}
+
+.grade {
+  position: absolute;
+  inset: 0;
+  opacity: 0.11;
+  background-image:
+    linear-gradient(rgba(56, 255, 145, 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 255, 145, 0.18) 1px, transparent 1px);
+  background-size: 42px 42px;
+  animation: moverGrade 14s linear infinite;
+}
+
+.scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  background: repeating-linear-gradient(0deg, transparent, transparent 3px, #000 4px);
+}
+
+.codigo {
+  position: absolute;
+  color: rgba(72, 255, 155, 0.07);
+  font:
+    12px 'Courier New',
+    monospace;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.codigo-a {
+  top: 10%;
+  left: -30%;
+  animation: codigoDireita 19s linear infinite;
+}
+
+.codigo-b {
+  top: 55%;
+  right: -40%;
+  animation: codigoEsquerda 24s linear infinite;
+}
+
+.codigo-c {
+  bottom: 12%;
+  left: -45%;
+  animation: codigoDireita 28s linear infinite;
+}
+
+.terminal {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 920px;
+  margin: auto;
+  border: 1px solid rgba(73, 245, 155, 0.25);
+  background: rgba(5, 10, 12, 0.95);
+  box-shadow: 0 0 60px rgba(73, 245, 155, 0.06);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 76px;
+  padding: 16px 20px;
+  border-bottom: 1px solid #16231d;
+}
+
+.identidade {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.identidade div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.identidade strong {
+  color: #49f59b;
+  font:
+    700 14px 'Courier New',
+    monospace;
+  letter-spacing: 3px;
+}
+
+.identidade small,
+.tempo-geral span {
+  color: #617168;
+  font:
+    9px 'Courier New',
+    monospace;
+  letter-spacing: 2px;
+}
+
+.online {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #49f59b;
+  box-shadow: 0 0 14px #49f59b;
+  animation: pulso 1.2s infinite;
+}
+
+.tempo-geral {
+  text-align: right;
+}
+
+.tempo-geral span {
+  display: block;
+}
+
+.tempo-geral strong {
+  font:
+    700 24px 'Courier New',
+    monospace;
+}
+
+.cabecalho-rodada {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 22px 15px;
+}
+
+.cabecalho-rodada > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.cabecalho-rodada span,
+.valor span {
+  color: #5a6a61;
+  font:
+    8px 'Courier New',
+    monospace;
+  letter-spacing: 2px;
+}
+
+.cabecalho-rodada strong {
+  color: #eaf2ee;
+  font:
+    700 28px 'Courier New',
+    monospace;
+}
+
+.cabecalho-rodada small {
+  color: #58675f;
+  font-size: 12px;
+}
+
+.tema {
+  text-align: center;
+}
+
+.tema strong {
+  color: #49f59b !important;
+  font-size: 16px !important;
+  letter-spacing: 2px;
+}
+
+.cronometro {
+  text-align: right;
+}
+
+.cronometro strong {
+  color: #49f59b !important;
+  font-size: 42px !important;
+  line-height: 0.9;
+}
+
+.cronometro.critico strong {
+  color: #ff5151 !important;
+  text-shadow: 0 0 18px rgba(255, 60, 60, 0.45);
+  animation: alerta 0.45s infinite alternate;
+}
+
+.barra-tempo {
+  height: 5px;
+  margin: 0 22px;
+  overflow: hidden;
+  background: #152019;
+}
+
+.barra-tempo div {
+  height: 100%;
+  background: linear-gradient(90deg, #1a8a57, #49f59b);
+  transition: width 0.3s linear;
+}
+
+.pergunta {
+  padding: 28px 22px 35px;
+}
+
+.valor {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  padding: 7px 10px;
+  border: 1px solid #25352c;
+  background: rgba(73, 245, 155, 0.03);
+}
+
+.valor strong {
+  color: #49f59b;
+  font:
+    700 18px 'Courier New',
+    monospace;
+}
+
+.valor small {
+  color: #536158;
+  font:
+    8px 'Courier New',
+    monospace;
+}
+
+.pergunta h2 {
+  margin: 26px 0;
+  color: #edf4f0;
+  font-size: clamp(22px, 4vw, 36px);
+  line-height: 1.25;
+}
+
+.alternativas {
+  display: grid;
+  gap: 10px;
+}
+
+.alternativas button {
+  display: grid;
+  grid-template-columns: 46px 1fr auto;
+  align-items: center;
+  min-height: 62px;
+  padding: 0 15px 0 0;
+  border: 1px solid #223129;
+  background: #080d0f;
+  color: #cfd9d4;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.16s ease;
+}
+
+.alternativas button:hover:not(:disabled) {
+  border-color: #49f59b;
+  transform: translateX(4px);
+  background: rgba(73, 245, 155, 0.04);
+}
+
+.alternativas button:disabled {
+  cursor: not-allowed;
+}
+
+.letra {
+  display: grid;
+  place-items: center;
+  align-self: stretch;
+  color: #49f59b;
+  background: #0e1b15;
+  font:
+    700 15px 'Courier New',
+    monospace;
+}
+
+.texto {
+  padding: 13px 15px;
+}
+
+.alternativas button.bloqueada {
+  border-color: rgba(255, 70, 70, 0.25);
+  color: #6e5656;
+  background: rgba(95, 10, 10, 0.08);
+}
+
+.bloqueada .letra,
+.x {
+  color: #ff5b5b;
+}
+
+.x {
+  font:
+    8px 'Courier New',
+    monospace;
+  letter-spacing: 1px;
+}
+
+.espera {
+  min-height: 540px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  text-align: center;
+}
+
+.espera p {
+  color: #49f59b;
+  font:
+    9px 'Courier New',
+    monospace;
+  letter-spacing: 4px;
+}
+
+.espera h1 {
+  margin: 10px 0 22px;
+  color: #49f59b;
+  font:
+    900 72px 'Courier New',
+    monospace;
+}
+
+.espera .aguardando-texto {
+  color: #e8f0ec;
+  font:
+    800 clamp(30px, 7vw, 58px) 'Courier New',
+    monospace;
+}
+
+.espera > strong {
+  color: #fff;
+  font:
+    700 20px 'Courier New',
+    monospace;
+}
+
+.sincronizando {
+  margin-top: 18px;
+  color: #9bb4a7;
+  font:
+    10px 'Courier New',
+    monospace;
+  letter-spacing: 3px;
+}
+
+.nucleo {
+  display: flex;
+  gap: 10px;
+  margin: 22px 0 30px;
+}
+
+.nucleo span {
+  width: 14px;
+  height: 14px;
+  border: 1px solid #49f59b;
+  animation: carregar 1.1s infinite;
+}
+
+.nucleo span:nth-child(2) {
+  animation-delay: 0.18s;
+}
+
+.nucleo span:nth-child(3) {
+  animation-delay: 0.36s;
+}
+
+.log {
+  max-width: 560px;
+  padding: 16px;
+  border-left: 2px solid #214b35;
+  color: #69776f;
+  background: #05090a;
+  font:
+    10px/1.8 'Courier New',
+    monospace;
+  text-align: left;
+}
+
+.log span {
+  color: #49f59b;
+  animation: piscar 0.6s infinite;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 18px;
+  border-top: 1px solid #152019;
+  color: #45544c;
+  background: #05090a;
+  font:
+    8px 'Courier New',
+    monospace;
+  letter-spacing: 1px;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+}
+
+.overlay .chuva-codigo {
+  position: absolute;
+  inset: -40%;
+  color: rgba(255, 255, 255, 0.12);
+  font:
+    22px/2 'Courier New',
+    monospace;
+  transform: rotate(-8deg);
+  animation: caosCodigo 0.6s linear infinite;
+}
+
+.overlay strong {
+  position: relative;
+  z-index: 2;
+  font:
+    900 clamp(42px, 10vw, 95px) 'Courier New',
+    monospace;
+}
+
+.overlay span,
+.overlay small {
+  position: relative;
+  z-index: 2;
+  margin-top: 10px;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 4px;
+}
+
+.overlay.erro {
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.16) 0,
+    rgba(255, 0, 0, 0.16) 2px,
+    rgba(0, 0, 0, 0.92) 3px,
+    rgba(0, 0, 0, 0.92) 8px
+  );
+  color: #ff5656;
+  animation: glitchTela 0.12s infinite;
+}
+
+.overlay.timeout {
+  background: rgba(4, 6, 7, 0.97);
+  color: #ffb347;
+}
+
+.tremendo .terminal {
+  animation: tremor 0.08s infinite;
+}
+
+@keyframes tremor {
+  0% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(-7px, 4px);
+  }
+  50% {
+    transform: translate(6px, -4px);
+  }
+  75% {
+    transform: translate(-4px, -3px);
+  }
+  100% {
+    transform: translate(5px, 4px);
+  }
+}
+
+@keyframes glitchTela {
+  from {
+    filter: contrast(1.2) hue-rotate(0deg);
+  }
+
+  to {
+    filter: contrast(2.2) hue-rotate(-15deg);
+  }
+}
+
+@keyframes caosCodigo {
+  from {
+    transform: translateY(-10%) rotate(-8deg);
+  }
+
+  to {
+    transform: translateY(10%) rotate(-8deg);
+  }
+}
+
+@keyframes pulso {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes carregar {
+  0%,
+  100% {
+    background: transparent;
+  }
+
+  50% {
+    background: #49f59b;
+    box-shadow: 0 0 15px #49f59b;
+  }
+}
+
+@keyframes piscar {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes alerta {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes moverGrade {
+  to {
+    background-position: 42px 42px;
+  }
+}
+
+@keyframes codigoDireita {
+  to {
+    transform: translateX(170vw);
+  }
+}
+
+@keyframes codigoEsquerda {
+  to {
+    transform: translateX(-170vw);
+  }
+}
+
+@media (max-width: 650px) {
+  .jogo {
+    padding: 8px;
+  }
+
+  header {
+    padding: 12px;
+  }
+
+  .identidade strong {
+    font-size: 11px;
+  }
+
+  .tempo-geral strong {
+    font-size: 20px;
+  }
+
+  .cabecalho-rodada {
+    grid-template-columns: 1fr 1fr;
+    padding: 18px 12px 10px;
+  }
+
+  .tema {
+    display: none !important;
+  }
+
+  .pergunta {
+    padding: 20px 12px 25px;
+  }
+
+  .espera h1 {
+    font-size: 55px;
+  }
+
+  footer {
+    gap: 8px;
+    font-size: 6px;
+  }
+}
+
+/* =========================================================
+   ESCAPE CODE V5
+   ATMOSFERA TECHNO-HACKER MAIS DENSA
+   ========================================================= */
+
+.atmosfera-hacker {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  font-family: 'Courier New', monospace;
+}
+
+.atmosfera-hacker::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(64, 255, 154, 0.08), transparent 18%),
+    radial-gradient(circle at 84% 73%, rgba(64, 255, 154, 0.055), transparent 22%);
+  animation: respiracaoDigital 5s ease-in-out infinite alternate;
+}
+
+.hack-linha {
+  position: absolute;
+  display: block;
+  width: max-content;
+  white-space: nowrap;
+  color: rgba(75, 255, 157, 0.25);
+  text-shadow:
+    0 0 7px rgba(75, 255, 157, 0.22),
+    0 0 18px rgba(75, 255, 157, 0.06);
+  letter-spacing: 1.8px;
+  user-select: none;
+}
+
+.hl-01 {
+  top: 4%;
+  left: -72vw;
+  font-size: 9px;
+  opacity: 0.72;
+  animation: varreduraDireita 18s linear infinite;
+  animation-delay: -2s;
+}
+
+.hl-02 {
+  top: 9%;
+  right: -72vw;
+  font-size: 10px;
+  opacity: 0.52;
+  animation: varreduraEsquerda 23s linear infinite;
+  animation-delay: -9s;
+}
+
+.hl-03 {
+  top: 14%;
+  left: -72vw;
+  font-size: 11px;
+  opacity: 0.64;
+  animation: varreduraDireita 29s linear infinite;
+  animation-delay: -14s;
+}
+
+.hl-04 {
+  top: 19%;
+  right: -72vw;
+  font-size: 8px;
+  opacity: 0.43;
+  animation: varreduraEsquerda 34s linear infinite;
+  animation-delay: -6s;
+}
+
+.hl-05 {
+  top: 25%;
+  left: -72vw;
+  font-size: 12px;
+  opacity: 0.76;
+  animation: varreduraDireita 21s linear infinite;
+  animation-delay: -18s;
+}
+
+.hl-06 {
+  top: 31%;
+  right: -72vw;
+  font-size: 9px;
+  opacity: 0.48;
+  animation: varreduraEsquerda 27s linear infinite;
+  animation-delay: -11s;
+}
+
+.hl-07 {
+  top: 37%;
+  left: -72vw;
+  font-size: 10px;
+  opacity: 0.72;
+  animation: varreduraDireita 31s linear infinite;
+  animation-delay: -4s;
+}
+
+.hl-08 {
+  top: 43%;
+  right: -72vw;
+  font-size: 11px;
+  opacity: 0.52;
+  animation: varreduraEsquerda 25s linear infinite;
+  animation-delay: -21s;
+}
+
+.hl-09 {
+  top: 49%;
+  left: -72vw;
+  font-size: 8px;
+  opacity: 0.64;
+  animation: varreduraDireita 18s linear infinite;
+  animation-delay: -2s;
+}
+
+.hl-10 {
+  top: 55%;
+  right: -72vw;
+  font-size: 12px;
+  opacity: 0.43;
+  animation: varreduraEsquerda 23s linear infinite;
+  animation-delay: -9s;
+}
+
+.hl-11 {
+  top: 61%;
+  left: -72vw;
+  font-size: 9px;
+  opacity: 0.76;
+  animation: varreduraDireita 29s linear infinite;
+  animation-delay: -14s;
+}
+
+.hl-12 {
+  top: 67%;
+  right: -72vw;
+  font-size: 10px;
+  opacity: 0.48;
+  animation: varreduraEsquerda 34s linear infinite;
+  animation-delay: -6s;
+}
+
+.hl-13 {
+  top: 73%;
+  left: -72vw;
+  font-size: 11px;
+  opacity: 0.72;
+  animation: varreduraDireita 21s linear infinite;
+  animation-delay: -18s;
+}
+
+.hl-14 {
+  top: 79%;
+  right: -72vw;
+  font-size: 8px;
+  opacity: 0.52;
+  animation: varreduraEsquerda 27s linear infinite;
+  animation-delay: -11s;
+}
+
+.hl-15 {
+  top: 85%;
+  left: -72vw;
+  font-size: 12px;
+  opacity: 0.64;
+  animation: varreduraDireita 31s linear infinite;
+  animation-delay: -4s;
+}
+
+.hl-16 {
+  top: 91%;
+  right: -72vw;
+  font-size: 9px;
+  opacity: 0.43;
+  animation: varreduraEsquerda 25s linear infinite;
+  animation-delay: -21s;
+}
+
+.hl-17 {
+  top: 4%;
+  left: -72vw;
+  font-size: 10px;
+  opacity: 0.76;
+  animation: varreduraDireita 18s linear infinite;
+  animation-delay: -2s;
+}
+
+.hl-18 {
+  top: 9%;
+  right: -72vw;
+  font-size: 11px;
+  opacity: 0.48;
+  animation: varreduraEsquerda 23s linear infinite;
+  animation-delay: -9s;
+}
+
+.hl-19 {
+  top: 14%;
+  left: -72vw;
+  font-size: 8px;
+  opacity: 0.72;
+  animation: varreduraDireita 29s linear infinite;
+  animation-delay: -14s;
+}
+
+.hl-20 {
+  top: 19%;
+  right: -72vw;
+  font-size: 12px;
+  opacity: 0.52;
+  animation: varreduraEsquerda 34s linear infinite;
+  animation-delay: -6s;
+}
+
+.hl-21 {
+  top: 25%;
+  left: -72vw;
+  font-size: 9px;
+  opacity: 0.64;
+  animation: varreduraDireita 21s linear infinite;
+  animation-delay: -18s;
+}
+
+.hl-22 {
+  top: 31%;
+  right: -72vw;
+  font-size: 10px;
+  opacity: 0.43;
+  animation: varreduraEsquerda 27s linear infinite;
+  animation-delay: -11s;
+}
+
+.hack-coluna {
+  position: absolute;
+  z-index: 1;
+  color: rgba(75, 255, 157, 0.15);
+  font:
+    8px/1.75 'Courier New',
+    monospace;
+  letter-spacing: 2px;
+  text-align: center;
+  text-shadow: 0 0 8px rgba(75, 255, 157, 0.16);
+}
+
+.hc-01 {
+  left: 2.5%;
+  top: -35%;
+  animation: colunaDescer 14s linear infinite -7s;
+}
+
+.hc-02 {
+  right: 3%;
+  top: -30%;
+  animation: colunaDescer 18s linear infinite -12s;
+}
+
+.hc-03 {
+  left: 10%;
+  top: -40%;
+  opacity: 0.55;
+  animation: colunaDescer 22s linear infinite -4s;
+}
+
+.hack-card {
+  position: absolute;
+  min-width: 118px;
+  padding: 8px 10px;
+  border-left: 1px solid rgba(73, 245, 155, 0.35);
+  border-top: 1px solid rgba(73, 245, 155, 0.12);
+  background: linear-gradient(90deg, rgba(73, 245, 155, 0.045), transparent);
+  color: rgba(219, 255, 235, 0.45);
+  backdrop-filter: blur(1px);
+  animation: flutuarHud 5s ease-in-out infinite alternate;
+}
+
+.hack-card::after {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: -5px;
+  width: 9px;
+  height: 9px;
+  border-left: 1px solid rgba(73, 245, 155, 0.55);
+  border-top: 1px solid rgba(73, 245, 155, 0.55);
+}
+
+.hack-card small {
+  display: block;
+  color: rgba(73, 245, 155, 0.36);
+  font:
+    6px 'Courier New',
+    monospace;
+  letter-spacing: 2px;
+}
+
+.hack-card strong {
+  display: block;
+  margin: 3px 0;
+  color: rgba(93, 255, 173, 0.54);
+  font:
+    700 12px 'Courier New',
+    monospace;
+}
+
+.hack-card span {
+  color: rgba(140, 170, 154, 0.38);
+  font:
+    6px 'Courier New',
+    monospace;
+  letter-spacing: 1px;
+}
+
+.card-01 {
+  left: 3.5%;
+  top: 23%;
+  animation-delay: -2s;
+}
+
+.card-02 {
+  right: 3.5%;
+  top: 39%;
+  animation-delay: -4s;
+}
+
+.card-03 {
+  left: 5%;
+  bottom: 12%;
+  animation-delay: -1s;
+}
+
+.reticulo {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  border: 1px solid rgba(73, 245, 155, 0.16);
+  border-radius: 50%;
+  animation: rastrear 8s ease-in-out infinite alternate;
+}
+
+.reticulo::before,
+.reticulo::after {
+  content: '';
+  position: absolute;
+  background: rgba(73, 245, 155, 0.25);
+}
+
+.reticulo::before {
+  left: 50%;
+  top: -16px;
+  width: 1px;
+  height: 94px;
+}
+
+.reticulo::after {
+  top: 50%;
+  left: -16px;
+  width: 94px;
+  height: 1px;
+}
+
+.reticulo i {
+  position: absolute;
+  inset: 24px;
+  border-radius: 50%;
+  background: rgba(73, 245, 155, 0.42);
+  box-shadow: 0 0 18px rgba(73, 245, 155, 0.33);
+}
+
+.reticulo span {
+  position: absolute;
+  left: 72px;
+  top: 25px;
+  width: max-content;
+  color: rgba(73, 245, 155, 0.32);
+  font:
+    6px 'Courier New',
+    monospace;
+  letter-spacing: 2px;
+}
+
+.reticulo-a {
+  left: 12%;
+  top: 67%;
+  animation-delay: -3s;
+}
+
+.reticulo-b {
+  right: 14%;
+  top: 16%;
+  animation-delay: -6s;
+}
+
+/* Código dentro da própria janela do jogador.
+   Isso garante que exista telemetria visível mesmo em telas pequenas. */
+.terminal {
+  overflow: hidden;
+  background: rgba(5, 10, 12, 0.9);
+}
+
+.terminal > :not(.codigo-terminal) {
+  position: relative;
+  z-index: 3;
+}
+
+.codigo-terminal {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  font-family: 'Courier New', monospace;
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 10%, #000 90%, transparent 100%);
+}
+
+.codigo-terminal::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(73, 245, 155, 0.025), transparent);
+  transform: translateX(-120%);
+  animation: scannerHorizontal 5s linear infinite;
+}
+
+.ct {
+  position: absolute;
+  display: block;
+  width: max-content;
+  color: rgba(73, 245, 155, 0.105);
+  font:
+    8px 'Courier New',
+    monospace;
+  letter-spacing: 1.7px;
+  text-shadow: 0 0 7px rgba(73, 245, 155, 0.1);
+}
+
+.ct-01 {
+  top: 9%;
+  left: -60%;
+  animation: terminalDireita 18s linear infinite -8s;
+}
+.ct-02 {
+  top: 17%;
+  right: -55%;
+  animation: terminalEsquerda 24s linear infinite -15s;
+}
+.ct-03 {
+  top: 27%;
+  left: -65%;
+  animation: terminalDireita 27s linear infinite -4s;
+}
+.ct-04 {
+  top: 36%;
+  right: -60%;
+  animation: terminalEsquerda 19s linear infinite -9s;
+}
+.ct-05 {
+  top: 45%;
+  left: -62%;
+  animation: terminalDireita 23s linear infinite -17s;
+}
+.ct-06 {
+  top: 54%;
+  right: -58%;
+  animation: terminalEsquerda 30s linear infinite -7s;
+}
+.ct-07 {
+  top: 63%;
+  left: -64%;
+  animation: terminalDireita 21s linear infinite -12s;
+}
+.ct-08 {
+  top: 72%;
+  right: -60%;
+  animation: terminalEsquerda 25s linear infinite -19s;
+}
+.ct-09 {
+  top: 81%;
+  left: -57%;
+  animation: terminalDireita 29s linear infinite -6s;
+}
+.ct-10 {
+  top: 88%;
+  right: -62%;
+  animation: terminalEsquerda 22s linear infinite -13s;
+}
+.ct-11 {
+  top: 31%;
+  left: 13%;
+  opacity: 0.7;
+  animation: pulsoFantasma 4s ease-in-out infinite;
+}
+.ct-12 {
+  top: 69%;
+  right: 12%;
+  opacity: 0.65;
+  animation: pulsoFantasma 5.4s ease-in-out infinite -2s;
+}
+
+.anel-scan {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 1px solid rgba(73, 245, 155, 0.08);
+  box-shadow:
+    inset 0 0 35px rgba(73, 245, 155, 0.025),
+    0 0 40px rgba(73, 245, 155, 0.025);
+}
+
+.anel-scan::before {
+  content: '';
+  position: absolute;
+  inset: 18px;
+  border-radius: inherit;
+  border: 1px dashed rgba(73, 245, 155, 0.1);
+  animation: girarScan 14s linear infinite;
+}
+
+.anel-scan-a {
+  left: -80px;
+  top: 11%;
+}
+
+.anel-scan-b {
+  right: -90px;
+  bottom: 8%;
+  transform: scale(0.8);
+}
+
+.rodada-critica .hack-linha,
+.rodada-critica .hack-coluna,
+.rodada-critica .ct {
+  color: rgba(255, 71, 71, 0.2);
+  text-shadow: 0 0 10px rgba(255, 30, 30, 0.15);
+}
+
+.rodada-critica .hack-card {
+  border-color: rgba(255, 68, 68, 0.25);
+}
+
+.rodada-critica .reticulo {
+  border-color: rgba(255, 70, 70, 0.28);
+}
+
+.rodada-critica .reticulo i {
+  background: rgba(255, 70, 70, 0.55);
+  box-shadow: 0 0 20px rgba(255, 30, 30, 0.35);
+}
+
+@keyframes varreduraDireita {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(190vw);
+  }
+}
+
+@keyframes varreduraEsquerda {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-190vw);
+  }
+}
+
+@keyframes colunaDescer {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(175vh);
+  }
+}
+
+@keyframes terminalDireita {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(1600px);
+  }
+}
+
+@keyframes terminalEsquerda {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-1600px);
+  }
+}
+
+@keyframes flutuarHud {
+  from {
+    transform: translateY(-5px);
+    opacity: 0.45;
+  }
+
+  to {
+    transform: translateY(7px);
+    opacity: 0.85;
+  }
+}
+
+@keyframes rastrear {
+  0% {
+    transform: translate(0, 0) scale(0.8);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: translate(35px, -12px) scale(1);
+    opacity: 0.65;
+  }
+
+  100% {
+    transform: translate(-10px, 22px) scale(0.9);
+    opacity: 0.38;
+  }
+}
+
+@keyframes scannerHorizontal {
+  to {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes girarScan {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes respiracaoDigital {
+  from {
+    opacity: 0.45;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulsoFantasma {
+  0%,
+  100% {
+    opacity: 0.18;
+  }
+
+  50% {
+    opacity: 0.72;
+  }
+}
+
+@media (max-width: 650px) {
+  .hack-linha {
+    font-size: 7px !important;
+    opacity: 0.58;
+  }
+
+  .hack-card {
+    transform: scale(0.78);
+  }
+
+  .card-01 {
+    left: -14px;
+    top: 19%;
+  }
+
+  .card-02 {
+    right: -22px;
+    top: 44%;
+  }
+
+  .card-03 {
+    left: -12px;
+    bottom: 10%;
+  }
+
+  .reticulo {
+    transform: scale(0.65);
+  }
+
+  .reticulo-a {
+    left: -25px;
+  }
+
+  .reticulo-b {
+    right: -30px;
+  }
+
+  .ct {
+    font-size: 6px;
+    opacity: 0.9;
+  }
+
+  .terminal {
+    background: rgba(5, 10, 12, 0.87);
+  }
+}
+
+/* =========================================================
+   ESCAPE CODE V6
+   CÓDIGOS DO USUÁRIO MAIS VISÍVEIS
+   ========================================================= */
+
+/* A V5 já tinha as camadas. Nesta versão aumentamos a
+   presença delas para a tela do jogador ficar no mesmo
+   nível visual do painel. */
+.atmosfera-hacker .hack-linha {
+  color: rgba(73, 255, 157, 0.34);
+  text-shadow:
+    0 0 8px rgba(73, 255, 157, 0.27),
+    0 0 22px rgba(73, 255, 157, 0.08);
+}
+
+.atmosfera-hacker .hack-coluna {
+  color: rgba(73, 255, 157, 0.22);
+}
+
+.codigo-terminal .ct {
+  color: rgba(73, 255, 157, 0.17);
+  text-shadow: 0 0 8px rgba(73, 255, 157, 0.15);
+}
+
+.terminal {
+  background: rgba(5, 10, 12, 0.855);
+}
+
+.terminal::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0,
+    transparent 86px,
+    rgba(73, 245, 155, 0.012) 87px,
+    transparent 88px
+  );
+}
+
+@media (max-width: 650px) {
+  .atmosfera-hacker .hack-linha {
+    opacity: 0.78;
+  }
+
+  .codigo-terminal .ct {
+    color: rgba(73, 255, 157, 0.21);
+  }
+
+  .terminal {
+    background: rgba(5, 10, 12, 0.82);
+  }
+}
+
+/* =========================================================
+   ESCAPE CODE V9
+   PROTEÇÃO RESPONSIVA PARA CELULAR
+   ========================================================= */
+
+.jogo {
+  width: 100%;
+  max-width: 100vw;
+  min-width: 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.terminal {
+  width: min(920px, 100%);
+  max-width: 100%;
+  min-width: 0;
+  margin-inline: auto;
+}
+
+.pergunta,
+.cabecalho-rodada,
+header,
+footer {
+  min-width: 0;
+}
+
+.pergunta h2 {
+  overflow-wrap: anywhere;
+}
+
+.alternativas button {
+  grid-template-columns:
+    46px
+    minmax(0, 1fr)
+    auto;
+  min-width: 0;
+}
+
+.texto {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 650px) {
+  .jogo {
+    min-height: 100dvh;
+    padding: 6px;
+  }
+
+  .terminal {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  header {
+    gap: 10px;
+    padding: 11px 10px;
+  }
+
+  .identidade {
+    min-width: 0;
+  }
+
+  .identidade div {
+    min-width: 0;
+  }
+
+  .identidade strong {
+    font-size: 10px;
+  }
+
+  .identidade small {
+    overflow: hidden;
+    max-width: 44vw;
+    font-size: 7px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .tempo-geral {
+    flex: 0 0 auto;
+  }
+
+  .tempo-geral strong {
+    font-size: 19px;
+  }
+
+  .cabecalho-rodada {
+    grid-template-columns:
+      minmax(0, 1fr)
+      auto;
+    gap: 8px;
+    padding: 16px 10px 9px;
+  }
+
+  .tema {
+    display: none !important;
+  }
+
+  .cabecalho-rodada strong {
+    font-size: 24px;
+  }
+
+  .cronometro strong {
+    font-size: 36px !important;
+  }
+
+  .barra-tempo {
+    margin: 0 10px;
+  }
+
+  .pergunta {
+    padding: 18px 10px 22px;
+  }
+
+  .pergunta h2 {
+    margin: 20px 0;
+    font-size: clamp(20px, 6.1vw, 30px);
+  }
+
+  .alternativas {
+    gap: 8px;
+  }
+
+  .alternativas button {
+    grid-template-columns:
+      40px
+      minmax(0, 1fr)
+      auto;
+    min-height: 56px;
+    padding-right: 9px;
+  }
+
+  .texto {
+    padding: 11px 10px;
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .letra {
+    font-size: 13px;
+  }
+
+  .x {
+    font-size: 6px;
+  }
+
+  .espera {
+    min-height: calc(100dvh - 120px);
+    padding: 20px 14px;
+  }
+
+  .espera .aguardando-texto {
+    font-size: clamp(27px, 8vw, 44px);
+  }
+
+  footer {
+    gap: 5px;
+    padding: 10px 8px;
+    font-size: 6px;
+  }
+}

@@ -1,0 +1,46 @@
+<main class="falha" [class.destruido]="destruido">
+  <div class="codigos">
+    0x00000000 MEMORY_CORRUPTED DELETE /CORE /MASTER_KEY RANSOMWARE_PAYLOAD::EXECUTE
+    ROOT_ACCESS::REVOKED ZERO_PROTOCOL::ARMED 01100110 01100001 01101001 01101100
+  </div>
+
+  @if (!destruido) {
+    @if (ehAdmin) {
+      <section>
+        <p>ALERTA CRÍTICO</p>
+
+        <h1>PROTOCOLO ZERO</h1>
+
+        <strong>
+          {{ contador }}
+        </strong>
+
+        <small> SEGUNDOS PARA COLAPSO TOTAL </small>
+      </section>
+    } @else {
+      <section>
+        <p>TEMPO DA MISSÃO ESGOTADO</p>
+
+        <h1>COLAPSO DO NÚCLEO</h1>
+
+        <small> sobrescrevendo setores... </small>
+      </section>
+    }
+  } @else {
+    <section class="final">
+      @if (ehAdmin) {
+        <h1>SISTEMA DELETADO!</h1>
+      } @else {
+        <h1>VOCÊ FALHOU!</h1>
+      }
+
+      <button type="button" (click)="novoJogo()">
+        @if (ehAdmin) {
+          + CRIAR NOVA OPERAÇÃO
+        } @else {
+          INICIAR NOVO JOGO
+        }
+      </button>
+    </section>
+  }
+</main>

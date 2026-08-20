@@ -1,0 +1,95 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.pagina {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #080c10;
+  color: #e8f5e9;
+}
+
+.painel {
+  width: 90%;
+  max-width: 520px;
+  padding: 40px;
+  border: 1px solid #1f8f55;
+  border-radius: 12px;
+  background: #0d1318;
+}
+
+.status {
+  color: #46e38b;
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+h1 {
+  margin: 10px 0;
+  font-size: 42px;
+}
+
+.descricao {
+  color: #9aa7ad;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+label {
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+input {
+  padding: 14px;
+  border: 1px solid #33434a;
+  border-radius: 6px;
+  background: #080c10;
+  color: white;
+  font-size: 16px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 14px;
+  border: 0;
+  border-radius: 6px;
+  background: #1f8f55;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #27ad69;
+}
+
+.erro {
+  margin-top: 20px;
+  color: #ff6464;
+}
+
+.jogador-registrado {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.jogador-registrado h2 {
+  font-size: 32px;
+}
+
+.aguardando {
+  margin-top: 30px;
+  color: #46e38b;
+  letter-spacing: 2px;
+}

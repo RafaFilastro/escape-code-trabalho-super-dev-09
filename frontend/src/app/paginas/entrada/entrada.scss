@@ -1,0 +1,1019 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.entrada {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: radial-gradient(circle at 50% 35%, #102018 0%, #080d0f 48%, #020304 100%);
+  color: #e7efeb;
+}
+
+.grade {
+  position: absolute;
+  inset: 0;
+  opacity: 0.11;
+  background-image:
+    linear-gradient(rgba(73, 245, 155, 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(73, 245, 155, 0.16) 1px, transparent 1px);
+  background-size: 46px 46px;
+}
+
+.scanlines {
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  pointer-events: none;
+  opacity: 0.065;
+  background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0, 0, 0, 0.8) 4px);
+}
+
+/* ======================================================
+   ATMOSFERA HACKER
+   ====================================================== */
+
+.atmosfera-hacker {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  font-family: 'Courier New', monospace;
+}
+
+.atmosfera-hacker::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 11% 30%, rgba(73, 245, 155, 0.07), transparent 20%),
+    radial-gradient(circle at 88% 70%, rgba(73, 245, 155, 0.05), transparent 24%);
+  animation: respiracao 5s ease-in-out infinite alternate;
+}
+
+.hack-linha {
+  position: absolute;
+  width: max-content;
+  white-space: nowrap;
+  color: rgba(73, 245, 155, 0.28);
+  text-shadow: 0 0 8px rgba(73, 245, 155, 0.22);
+  font:
+    10px 'Courier New',
+    monospace;
+  letter-spacing: 2px;
+}
+
+.hl-01 {
+  top: 4%;
+  left: -70%;
+  animation: direita 20s linear infinite -8s;
+}
+.hl-02 {
+  top: 10%;
+  right: -70%;
+  animation: esquerda 25s linear infinite -17s;
+  opacity: 0.6;
+}
+.hl-03 {
+  top: 16%;
+  left: -72%;
+  animation: direita 31s linear infinite -5s;
+}
+.hl-04 {
+  top: 23%;
+  right: -74%;
+  animation: esquerda 28s linear infinite -20s;
+  opacity: 0.55;
+}
+.hl-05 {
+  top: 30%;
+  left: -75%;
+  animation: direita 24s linear infinite -13s;
+}
+.hl-06 {
+  top: 37%;
+  right: -72%;
+  animation: esquerda 34s linear infinite -7s;
+  opacity: 0.58;
+}
+.hl-07 {
+  top: 44%;
+  left: -76%;
+  animation: direita 27s linear infinite -21s;
+}
+.hl-08 {
+  top: 51%;
+  right: -74%;
+  animation: esquerda 22s linear infinite -9s;
+  opacity: 0.6;
+}
+.hl-09 {
+  top: 58%;
+  left: -72%;
+  animation: direita 30s linear infinite -18s;
+}
+.hl-10 {
+  top: 65%;
+  right: -70%;
+  animation: esquerda 26s linear infinite -4s;
+  opacity: 0.58;
+}
+.hl-11 {
+  top: 72%;
+  left: -74%;
+  animation: direita 35s linear infinite -15s;
+}
+.hl-12 {
+  top: 79%;
+  right: -73%;
+  animation: esquerda 23s linear infinite -12s;
+  opacity: 0.55;
+}
+.hl-13 {
+  top: 86%;
+  left: -72%;
+  animation: direita 29s linear infinite -24s;
+}
+.hl-14 {
+  top: 92%;
+  right: -72%;
+  animation: esquerda 32s linear infinite -10s;
+  opacity: 0.55;
+}
+.hl-15 {
+  top: 20%;
+  left: 6%;
+  opacity: 0.22;
+  animation: fantasma 4s ease-in-out infinite;
+}
+.hl-16 {
+  top: 48%;
+  right: 5%;
+  opacity: 0.24;
+  animation: fantasma 5.5s ease-in-out infinite -2s;
+}
+.hl-17 {
+  bottom: 16%;
+  left: 9%;
+  opacity: 0.22;
+  animation: fantasma 6s ease-in-out infinite -4s;
+}
+.hl-18 {
+  top: 35%;
+  right: 14%;
+  opacity: 0.2;
+  animation: fantasma 4.7s ease-in-out infinite -1s;
+}
+
+.hack-coluna {
+  position: absolute;
+  color: rgba(73, 245, 155, 0.17);
+  font:
+    8px/1.8 'Courier New',
+    monospace;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.coluna-a {
+  left: 2.2%;
+  top: -42%;
+  animation: descer 17s linear infinite -9s;
+}
+
+.coluna-b {
+  right: 2.8%;
+  top: -38%;
+  animation: descer 21s linear infinite -14s;
+}
+
+.hud {
+  position: absolute;
+  min-width: 128px;
+  padding: 9px 11px;
+  border-left: 1px solid rgba(73, 245, 155, 0.34);
+  border-top: 1px solid rgba(73, 245, 155, 0.12);
+  background: linear-gradient(90deg, rgba(73, 245, 155, 0.05), transparent);
+  animation: flutuar 5s ease-in-out infinite alternate;
+}
+
+.hud small {
+  display: block;
+  color: rgba(73, 245, 155, 0.36);
+  font:
+    6px 'Courier New',
+    monospace;
+  letter-spacing: 2px;
+}
+
+.hud strong {
+  display: block;
+  margin: 4px 0;
+  color: rgba(96, 255, 176, 0.55);
+  font:
+    700 13px 'Courier New',
+    monospace;
+}
+
+.hud span {
+  color: rgba(140, 170, 154, 0.4);
+  font:
+    6px 'Courier New',
+    monospace;
+}
+
+.hud-a {
+  left: 3.5%;
+  top: 31%;
+  animation-delay: -2s;
+}
+
+.hud-b {
+  right: 3.5%;
+  bottom: 21%;
+  animation-delay: -4s;
+}
+
+.reticulo {
+  position: absolute;
+  width: 72px;
+  height: 72px;
+  border: 1px solid rgba(73, 245, 155, 0.16);
+  border-radius: 50%;
+  animation: rastrear 9s ease-in-out infinite alternate;
+}
+
+.reticulo::before,
+.reticulo::after {
+  content: '';
+  position: absolute;
+  background: rgba(73, 245, 155, 0.25);
+}
+
+.reticulo::before {
+  left: 50%;
+  top: -18px;
+  width: 1px;
+  height: 108px;
+}
+
+.reticulo::after {
+  top: 50%;
+  left: -18px;
+  width: 108px;
+  height: 1px;
+}
+
+.reticulo i {
+  position: absolute;
+  inset: 27px;
+  border-radius: 50%;
+  background: rgba(73, 245, 155, 0.48);
+  box-shadow: 0 0 18px rgba(73, 245, 155, 0.3);
+}
+
+.reticulo span {
+  position: absolute;
+  left: 80px;
+  top: 29px;
+  width: max-content;
+  color: rgba(73, 245, 155, 0.32);
+  font:
+    6px 'Courier New',
+    monospace;
+  letter-spacing: 2px;
+}
+
+.reticulo-a {
+  left: 12%;
+  bottom: 12%;
+  animation-delay: -3s;
+}
+
+.reticulo-b {
+  right: 12%;
+  top: 14%;
+  animation-delay: -7s;
+}
+
+.anel-scan {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border: 1px solid rgba(73, 245, 155, 0.075);
+  border-radius: 50%;
+}
+
+.anel-scan::before {
+  content: '';
+  position: absolute;
+  inset: 22px;
+  border: 1px dashed rgba(73, 245, 155, 0.1);
+  border-radius: inherit;
+  animation: girar 16s linear infinite;
+}
+
+.anel-a {
+  left: -115px;
+  top: 9%;
+}
+
+.anel-b {
+  right: -125px;
+  bottom: 7%;
+  transform: scale(0.82);
+}
+
+/* ======================================================
+   TERMINAL PRINCIPAL
+   ====================================================== */
+
+.terminal {
+  position: relative;
+  z-index: 3;
+  overflow: hidden;
+  width: min(700px, 100%);
+  border: 1px solid rgba(73, 245, 155, 0.58);
+  border-radius: 8px;
+  background: rgba(9, 15, 17, 0.9);
+  box-shadow: 0 0 70px rgba(73, 245, 155, 0.07);
+}
+
+.terminal > :not(.codigo-terminal) {
+  position: relative;
+  z-index: 3;
+}
+
+.codigo-terminal {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  font-family: 'Courier New', monospace;
+}
+
+.codigo-terminal::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(73, 245, 155, 0.035), transparent);
+  transform: translateX(-120%);
+  animation: scanner 5.5s linear infinite;
+}
+
+.ct {
+  position: absolute;
+  width: max-content;
+  color: rgba(73, 245, 155, 0.105);
+  font:
+    7px 'Courier New',
+    monospace;
+  letter-spacing: 1.6px;
+  text-shadow: 0 0 7px rgba(73, 245, 155, 0.1);
+}
+
+.ct-01 {
+  top: 9%;
+  left: -62%;
+  animation: dentroDireita 18s linear infinite -10s;
+}
+.ct-02 {
+  top: 18%;
+  right: -60%;
+  animation: dentroEsquerda 23s linear infinite -15s;
+}
+.ct-03 {
+  top: 28%;
+  left: -65%;
+  animation: dentroDireita 27s linear infinite -5s;
+}
+.ct-04 {
+  top: 38%;
+  right: -63%;
+  animation: dentroEsquerda 20s linear infinite -12s;
+}
+.ct-05 {
+  top: 48%;
+  left: -66%;
+  animation: dentroDireita 25s linear infinite -18s;
+}
+.ct-06 {
+  top: 58%;
+  right: -61%;
+  animation: dentroEsquerda 29s linear infinite -8s;
+}
+.ct-07 {
+  top: 68%;
+  left: -64%;
+  animation: dentroDireita 22s linear infinite -16s;
+}
+.ct-08 {
+  top: 78%;
+  right: -64%;
+  animation: dentroEsquerda 26s linear infinite -4s;
+}
+.ct-09 {
+  top: 87%;
+  left: -62%;
+  animation: dentroDireita 31s linear infinite -20s;
+}
+.ct-10 {
+  top: 34%;
+  left: 15%;
+  opacity: 0.6;
+  animation: fantasma 4s ease-in-out infinite;
+}
+
+header {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid #173127;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.marca strong {
+  color: #49f59b;
+  font:
+    700 11px 'Courier New',
+    monospace;
+  letter-spacing: 3px;
+}
+
+.online {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #49f59b;
+  box-shadow: 0 0 12px #49f59b;
+}
+
+.node {
+  color: #637169;
+  font:
+    8px 'Courier New',
+    monospace;
+  letter-spacing: 2px;
+}
+
+.conteudo {
+  padding: 42px 46px 34px;
+}
+
+.alerta {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 13px 15px;
+  border: 1px solid rgba(255, 72, 72, 0.42);
+  border-radius: 5px;
+  background: rgba(130, 15, 22, 0.1);
+}
+
+.icone {
+  width: 31px;
+  height: 31px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 1px solid #ff5f5f;
+  border-radius: 50%;
+  color: #ff5f5f;
+  font:
+    700 15px 'Courier New',
+    monospace;
+}
+
+.alerta div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.alerta small {
+  color: #847878;
+  font:
+    7px 'Courier New',
+    monospace;
+  letter-spacing: 3px;
+}
+
+.alerta strong {
+  color: #ff6565;
+  font-size: 14px;
+}
+
+.protocolo {
+  margin: 30px 0 12px;
+  color: #49f59b;
+  font:
+    8px 'Courier New',
+    monospace;
+  letter-spacing: 4px;
+}
+
+.conteudo h1 {
+  margin: 0;
+  max-width: 590px;
+  font-size: clamp(38px, 6vw, 58px);
+  line-height: 1.02;
+}
+
+.conteudo h1 span {
+  display: block;
+  color: #49f59b;
+}
+
+.descricao {
+  margin: 24px 0 30px;
+  color: #8d9993;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.status-grid div {
+  min-height: 62px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 11px 13px;
+  border: 1px solid #213129;
+  border-radius: 4px;
+  background: rgba(8, 14, 15, 0.78);
+}
+
+.status-grid small,
+form label {
+  color: #64736b;
+  font:
+    7px 'Courier New',
+    monospace;
+  letter-spacing: 3px;
+}
+
+.status-grid strong {
+  color: #e7efeb;
+  font-size: 14px;
+}
+
+.status-grid div:first-child strong {
+  color: #49f59b;
+}
+
+form {
+  display: grid;
+  gap: 10px;
+}
+
+.campo {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #31433a;
+  border-radius: 4px;
+  background: rgba(7, 12, 14, 0.88);
+}
+
+.campo span {
+  padding-left: 14px;
+  color: #49f59b;
+  font:
+    700 16px 'Courier New',
+    monospace;
+}
+
+.campo input {
+  width: 100%;
+  min-height: 46px;
+  border: 0;
+  outline: 0;
+  padding: 0 14px 0 10px;
+  background: transparent;
+  color: #e5eee9;
+  font:
+    14px 'Courier New',
+    monospace;
+}
+
+.campo input::placeholder {
+  color: #4d5953;
+}
+
+.aviso-reuso {
+  color: #56635c;
+  font:
+    6px 'Courier New',
+    monospace;
+  letter-spacing: 1.5px;
+}
+
+form button,
+.estado-central button {
+  min-height: 49px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 0;
+  border-radius: 4px;
+  padding: 0 18px;
+  background: #49f59b;
+  color: #041109;
+  font:
+    700 12px 'Courier New',
+    monospace;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.mensagem-erro {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-left: 2px solid #ff5d5d;
+  background: rgba(255, 0, 0, 0.04);
+  color: #ff6a6a;
+  font:
+    8px 'Courier New',
+    monospace;
+  letter-spacing: 1px;
+}
+
+.bloqueio {
+  padding: 18px;
+  border: 1px solid rgba(255, 70, 70, 0.26);
+  background: rgba(110, 10, 10, 0.05);
+}
+
+.bloqueio strong {
+  display: block;
+  color: #ff5e5e;
+  margin-bottom: 5px;
+}
+
+.bloqueio span {
+  color: #7f8984;
+}
+
+.estado-central {
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 35px;
+  text-align: center;
+}
+
+.estado-central p {
+  color: #49f59b;
+  font:
+    8px 'Courier New',
+    monospace;
+  letter-spacing: 4px;
+}
+
+.estado-central h1 {
+  margin: 8px 0;
+  font-size: clamp(34px, 6vw, 55px);
+}
+
+.estado-central h1 span {
+  display: block;
+  color: #49f59b;
+}
+
+.estado-central small {
+  max-width: 470px;
+  margin-top: 12px;
+  color: #78847e;
+}
+
+.estado-central button {
+  margin-top: 22px;
+}
+
+.loader {
+  display: flex;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.loader i {
+  width: 12px;
+  height: 12px;
+  border: 1px solid #49f59b;
+  animation: carregar 1s infinite;
+}
+
+.loader i:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.loader i:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+footer {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-top: 1px solid #17231d;
+  color: #435048;
+  font:
+    6px 'Courier New',
+    monospace;
+  letter-spacing: 1px;
+}
+
+/* ======================================================
+   ANIMAÇÕES
+   ====================================================== */
+
+@keyframes direita {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(190vw);
+  }
+}
+
+@keyframes esquerda {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-190vw);
+  }
+}
+
+@keyframes descer {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(180vh);
+  }
+}
+
+@keyframes dentroDireita {
+  to {
+    transform: translateX(1500px);
+  }
+}
+
+@keyframes dentroEsquerda {
+  to {
+    transform: translateX(-1500px);
+  }
+}
+
+@keyframes scanner {
+  to {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes flutuar {
+  from {
+    transform: translateY(-6px);
+    opacity: 0.45;
+  }
+
+  to {
+    transform: translateY(7px);
+    opacity: 0.85;
+  }
+}
+
+@keyframes rastrear {
+  0% {
+    transform: translate(0, 0) scale(0.82);
+    opacity: 0.25;
+  }
+
+  50% {
+    transform: translate(38px, -15px) scale(1);
+    opacity: 0.62;
+  }
+
+  100% {
+    transform: translate(-12px, 24px) scale(0.9);
+    opacity: 0.34;
+  }
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes respiracao {
+  from {
+    opacity: 0.42;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fantasma {
+  0%,
+  100% {
+    opacity: 0.14;
+  }
+
+  50% {
+    opacity: 0.65;
+  }
+}
+
+@keyframes carregar {
+  0%,
+  100% {
+    background: transparent;
+  }
+
+  50% {
+    background: #49f59b;
+    box-shadow: 0 0 14px #49f59b;
+  }
+}
+
+@media (max-width: 700px) {
+  .entrada {
+    padding: 8px;
+  }
+
+  .terminal {
+    width: 100%;
+  }
+
+  .conteudo {
+    padding: 26px 18px 24px;
+  }
+
+  .status-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hack-linha {
+    font-size: 7px;
+    opacity: 0.65;
+  }
+
+  .hud {
+    transform: scale(0.75);
+  }
+
+  .hud-a {
+    left: -18px;
+  }
+
+  .hud-b {
+    right: -25px;
+  }
+
+  .reticulo {
+    transform: scale(0.62);
+  }
+
+  .reticulo-a {
+    left: -30px;
+  }
+
+  .reticulo-b {
+    right: -34px;
+  }
+
+  .ct {
+    font-size: 6px;
+    opacity: 0.95;
+  }
+}
+
+/* =========================================================
+   ESCAPE CODE V9
+   ENTRADA 100% RESPONSIVA NO CELULAR / QR CODE
+   ========================================================= */
+
+.entrada {
+  width: 100%;
+  max-width: 100vw;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.terminal {
+  width: min(700px, 100%);
+  max-width: 100%;
+  min-width: 0;
+}
+
+.conteudo,
+.status-grid,
+form,
+.campo {
+  min-width: 0;
+}
+
+.campo input {
+  min-width: 0;
+}
+
+@media (max-width: 700px) {
+  .entrada {
+    min-height: 100dvh;
+    padding: 6px;
+    place-items: center;
+  }
+
+  .terminal {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  header {
+    gap: 10px;
+    padding: 0 12px;
+  }
+
+  .node {
+    max-width: 42vw;
+    overflow: hidden;
+    font-size: 6px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .conteudo {
+    padding: 24px 14px 20px;
+  }
+
+  .alerta {
+    padding: 11px 12px;
+  }
+
+  .alerta strong {
+    overflow-wrap: anywhere;
+    font-size: 12px;
+  }
+
+  .protocolo {
+    margin-top: 23px;
+  }
+
+  .conteudo h1 {
+    font-size: clamp(34px, 10vw, 48px);
+  }
+
+  .descricao {
+    margin: 18px 0 22px;
+    font-size: 13px;
+  }
+
+  .status-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .campo {
+    width: 100%;
+  }
+
+  form button {
+    width: 100%;
+  }
+
+  footer {
+    gap: 8px;
+    padding: 0 12px;
+  }
+}
